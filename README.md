@@ -9,5 +9,6 @@
 * [Git](./Git)
   * [git reset](./Git/git%20reset.md)
   * [git stash](./Git/git%20stash.md)
+  * [git cherry-pick](./Git/git%20cherry-pick.md)
 * [Nginx](./Nginx)
   * [Apache VS Nginx](Nginx/Apache%20vs%20Nginx.md)

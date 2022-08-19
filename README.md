@@ -11,4 +11,5 @@
   * [git stash](./Git/git%20stash.md)
   * [git cherry-pick](./Git/git%20cherry-pick.md)
 * [Nginx](./Nginx)
-  * [Apache VS Nginx](Nginx/Apache%20vs%20Nginx.md)
+  * [Apache VS Nginx](./Nginx/Apache%20vs%20Nginx.md)
+  * [CentOS7 내 Nginx 설치](./Nginx/CentOS7%20내%20설치.md)

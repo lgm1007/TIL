@@ -12,6 +12,8 @@
   * [git cherry-pick](./Git/git%20cherry-pick.md)
 * [Spring](./Spring)
   * [Spring Boot](./Spring/Spring%20Boot.md)
+* [Python](./Python)
+  * [List Comprehension](./Python/List%20Comprehension.md)
 * [OS](./OS)
   * [Vim](./OS/Vim.md)
 * [Nginx](./Nginx)

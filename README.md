@@ -6,6 +6,7 @@
   * [빌더](./designPattern/빌더.md)
   * [프로토타입](./designPattern/프로토타입.md)
   * [싱글턴](./designPattern/싱글턴.md)
+  * [어댑터](./designPattern/어댑터.md)
 * [Git](./Git)
   * [git reset](./Git/git%20reset.md)
   * [git stash](./Git/git%20stash.md)

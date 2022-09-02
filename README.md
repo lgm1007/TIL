@@ -12,6 +12,7 @@
   * [git stash](./Git/git%20stash.md)
   * [git cherry-pick](./Git/git%20cherry-pick.md)
 * [Java](./Java)
+  * [JVM](./Java/JVM.md)
   * [NullPointerException](./Java/NullPointerException.md)
   * [OutOfMemory - GC overhead limit exceeded](./Java/OutOfMemory%20-%20GC%20overhead%20limit%20exceeded.md)
 * [Spring](./Spring)

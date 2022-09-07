@@ -1,0 +1,47 @@
+# Stream
+### Stream 이란?
+* Java 8부터 지원하는 기능
+* 컬렉션, 배열 등에 대해 저장되어 있는 요소들을 하나씩 참조하여 반복적인 처리를 가능하게 하는 기능
+* 불필요한 for문과 그 안에서 동작하는 if문 등의 분기 처리를 하지 않고 깔끔하고 직관적인 코드로 구현할 수 있음
+### Stream 특징
+1. **데이터를 변경하지 않음**
+    * Stream은 원본데이터로부터 데이터를 읽기만 할 뿐, 원본데이터 자체를 변경하지 않음
+2. **일회용이다.**
+    * Stream은 한 번 사용하면 닫혀서 재사용이 불가능함
+    * 필요하다면 정렬된 결과를 컬렉션이나 배열에 담아 반환할 수 있음
+3. 작업을 **내부 반복으로 처리**함
+    * 내부 반복은 반복문을 메서드의 내부에 숨길 수 있다는 것을 의미
+    * 즉, 반복문이 코드 상에 노출되지 않음 
+### Stream 구조
+* Stream의 세 가지 구조
+    1. Stream 생성
+    2. 중개 연산
+    3. 최종 연산
+* **데이터 소스 객체 집합.Stream생성().중개연산().최종연산()**;
+* 예시 코드
+```java
+String[] strArray = {"red", "yellow", "blue", "green", "brown"};
+Set<String> colorSet = Arrays.asList(strArray)              // strArray를 List로 변환
+			.stream()                           // 1. Stream 생성
+			.filter(x -> x.contains("b"))       // 2. 중개 연산 : "b"가 포함된 단어만 
+			.collect(Collectors.toSet());       // 3. 최종 연산 : 중개 연산을 통해 가공된 stream을 Set 형태로 모아줌
+colorSet.forEach(x -> System.out.println(x));               // 출력: blue brown
+```
+### Stream 사용 가능 데이터소스
+1. 컬렉션
+2. 배열
+3. 가변 매개변수
+4. 지정된 범위의 연속된 정수
+5. 특정 타입의 난수들
+6. 람다 표현식
+7. 파일
+8. 빈 스트림
+### 중개 연산
+* 대표적인 중개 연산과 그에 따른 메서드
+    1. Stream 필터링: **filter()**, **distinct()**
+    2. Stream 변환: **map()**, **flatMap()**
+    3. Stream 제한: **limit()**, **skip()**
+    4. Stream 정렬: **sorted()**
+    5. Stream 연산 결과 확인: **peek()**
+
+

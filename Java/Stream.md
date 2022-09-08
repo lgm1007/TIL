@@ -43,5 +43,16 @@ colorSet.forEach(x -> System.out.println(x));               // 출력: blue brow
     3. Stream 제한: **limit()**, **skip()**
     4. Stream 정렬: **sorted()**
     5. Stream 연산 결과 확인: **peek()**
-
+### 최종 연산
+* 최종 연산은 앞서 중개 연산을 통해 만들어진 stream에 있는 요소들에 대해 마지막으로 각 요소를 소모하며 최종 결과를 표시
+* 지연(lazy)되었던 모든 중개 연산들이 최종 연산시에 모두 수행됨
+* 최종 연산 시에 **모든 요소를 소모한 해당 stream은 더 이상 사용할 수 없음**
+* 대표적인 최종 연산
+    1. 요소의 출력: **forEach()**
+    2. 요소의 소모: **reduce()**
+    3. 요소의 검색: **findFirst()**, **findAny()**
+    4. 요소의 검사: **anyMatch()**, **allMatch()**, **noneMatch()**
+    5. 요소의 통계: **count()**, **min()**, **max()**
+    6. 요소의 연산: **sum()**, **average()**
+    7. 요소의 수집: **collect()**
 

@@ -9,6 +9,7 @@
   * [어댑터](./designPattern/어댑터.md)
   * [브릿지](./designPattern/브릿지.md)
   * [컴포지트](./designPattern/컴포지트.md)
+  * [데코레이터](./designPattern/데코레이터.md)
 * [Git](./Git)
   * [git reset](./Git/git%20reset.md)
   * [git stash](./Git/git%20stash.md)

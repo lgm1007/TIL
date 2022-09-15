@@ -91,3 +91,48 @@ console.log(blue);  // 파랑
 * 클래스 기반 객체 지향 프로그래밍도 할 수 있게 Class 키워드 도입
 * 자바스크립트에서 Class는 내부적으로 프로토타입을 이용해 만들어짐
 * Class는 `let`, `const` 키워드처럼 동작함
+### 8. String 메서드 (includes, startsWith, endsWith)
+* `includes` : 포함되어 있는지 확인하는 메서드
+* `startsWith` : 시작하는지 확인하는 메서드
+* `endsWith` : 끝나는지 확인하는 메서드
+* boolean 타입을 반환한다.
+```javascript
+const str = "Hello World! Javascript";
+str.includes("Java");        // true
+str.startsWith("Hello");    // true
+str.endsWith("script");     // true
+```
+### 9. Multi-Line String
+* 기존에는 문자열이 라인을 넘어가면 `\n` 줄바꿈 문자와 덧셈을 사용해야 했다.
+* Es6 방식으로 사용하게 되면서 여러줄의 문자열 관리도 편해졌다.
+```javascript
+// es5
+var str = 'abcdefgabcdefgabcdefgabcdefg\n' +
+'hijklmnophijklmnophijklmnop\n';
+
+// es6
+let str = `abcdefgabcdefgabcdefgabcdefg
+hijklmnophijklmnophijklmnop`;
+```
+### 10. Default Parameter
+* 기존에는 함수의 매개변수를 초기화하려면 내부 작업이 필요했으나, es6에서부턴 필요 없어졌다.
+```javascript
+// es5
+function plusFn(a, b) {
+	var a = a || 100;
+	var b = b || 200;
+	return a + b;
+}
+console.log(plusFn(100));   // 300
+
+// es6
+const plusFn = (a = 100, b = 200) => a + b;
+console.log(plusFn());     // 300
+```
+### 11. Module
+* 재사용하기 위한 코드 조각
+* 세부사항을 캡슐화시키고 API 부분만 외부에 노출시킨 코드
+* type에 module을 추가시키고 확장자를 mjs로 변경하여 사용
+```javascript
+<script type="module" src="lib.mjs"></script>
+```

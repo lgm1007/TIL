@@ -1,5 +1,5 @@
 ![badge](https://img.shields.io/badge/TIL-Today%20I%20Learn-brightgreen)
-# Today I Learn TOC
+# TOC <span style="font-size:22px; font-weight:normal;">(Today I Learn)</span>
 * [디자인 패턴](./designPattern)
   * [팩토리 메서드](./designPattern/팩토리%20메서드.md)
   * [추상 팩토리](./designPattern/추상%20팩토리.md)

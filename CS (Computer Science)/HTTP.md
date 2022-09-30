@@ -5,11 +5,9 @@
 * HTTP는 신호 송신의 순서, 데이터의 표현법 등을 정함
 ### HTTP 특징
 1. **HTTP request & HTTP response**
-![http_request_response](https://velog.velcdn.com/images/tiger/post/f9e95a0e-ead5-4e3e-bb83-dd254d788a04/image.png)
-<br/>
-<br/>
-    * request : 해당 사이트를 브라우저에 표현하기 위해 해당 사이트의 자료를 달라고 요청하는 것
-    * response : 요청받은 해당사이트 관련 자료들을 브라우저에게 응답으로 전달해주는 것
+![http_request_response](https://velog.velcdn.com/images/tiger/post/f9e95a0e-ead5-4e3e-bb83-dd254d788a04/image.png)  
+* request : 해당 사이트를 브라우저에 표현하기 위해 해당 사이트의 자료를 달라고 요청하는 것
+* response : 요청받은 해당사이트 관련 자료들을 브라우저에게 응답으로 전달해주는 것
 2. **stateless**
     * State(상태) + less(없음)
     * 각각의 HTTP 통신(요청/응답)은 독립적이기 때문에 과거의 통신에 대한 내용을 전혀 알지 못함

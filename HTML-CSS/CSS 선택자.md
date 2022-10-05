@@ -84,6 +84,28 @@ h1~ul { background: white; color: silver; }
   * 형제 중 `첫 번째` 동생 요소가 조건을 충족시킬 때만 스타일을 적용
 * **일반** 형제 선택자
   * 조건을 충족하는 `모든` 동생 요소에 스타일을 적용
+#### 6. 속성 선택자 (Attribute Selectors)
+* Html 태그 안의 특정 속성들에 따라 선택하는 선택자
+* 속성 값의 조건에 따라 다양한 스타일을 지정할 수 있음
+```css
+/* CSS */
+/* Element[attr] 형식 */
+a[href] { background: yellow; color: black; }
 
+/* Element[attr="val"] 형식 */
+input[type="text"] { background: #fff; border: 1px solid #ddd; }
 
+/* Element[attr$="val"] 형식 */
+a[href$=".xls"] { background: darkgreen; }
+
+/* HTML 파트 */
+<a href="index.html">Element[attr] 형식</a>
+<input type="text" name="name" />
+<a href="excels.xls">Element[attr$="val"] 형식</a>
+```
+* 속성 선택자는 모두 앞 쪽에 태그명과 대괄호(`[]`) 사이에 속성에 관련된 내용을 넣어 선택
+* `E[attr="val"]` : 속성과 속성값이 완벽하게 일치하는 경우 선택
+* `E[attr~="val"]` : 띄어쓰기를 통해 여러 개 올 수 있는 속성값 중 하나만 일치해도 선택
+* `E[attr^="val"]` : "val" 으로 시작하는 속성값을 선택
+* `E[attr$="val"]` : "val" 으로 끝나는 속성값을 선택
 

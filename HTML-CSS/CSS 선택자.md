@@ -108,4 +108,39 @@ a[href$=".xls"] { background: darkgreen; }
 * `E[attr~="val"]` : 띄어쓰기를 통해 여러 개 올 수 있는 속성값 중 하나만 일치해도 선택
 * `E[attr^="val"]` : "val" 으로 시작하는 속성값을 선택
 * `E[attr$="val"]` : "val" 으로 끝나는 속성값을 선택
-
+#### 7. 가상 클래스 선택자 (Pseudo-Classes Selectors)
+* 웹 문서상에 실제로 존재하지 않지만 필요에 의해 임의로 가상의 선택자를 지정하는 선택자
+* **링크 선택자(Link pseudo-classes)와 동적 선택자(user action pseudo-classes)**
+  * `E::link` : 방문하지 않은 링크 E 선택
+  * `E::visited` : 방문한 링크 E 선택
+  * `E::active` : E 요소에 마우스 클릭 또는 키보드 엔터가 눌린 동안 E 선택
+  * `E::visited` : E 요소에 마우스가 올라가 있는 동안 E 선택
+  * `E::focus` : E 요소에 포커스가 머물러 있는 동안 E 선택
+* **구조적 가상 클래스 선택자 (Structural pseudo-classes)**
+  * `E::root` : 문서의 최상위 요소(html)를 선택
+  * `E::nth-child(n)` : 앞으로부터 지정된 순서와 일치하는 요소가 E라면 선택 (E가 아닌 요소의 순서가 계산에 포함)
+  * `E::nth-last-child(n)` : 뒤로부터 지정된 순서와 일치하는 요소가 E라면 선택 (E가 아닌 요소의 순서가 계산에 포함)
+  * `E::nth-of-type(n)` : E 요소 중 앞으로부터 순서가 일치하는 E 요소를 선택 (E 요소의 순서만 계산에 포함)
+  * `E::nth-last-of-type(n)` : E 요소 중 끝으로부터 순서가 일치하는 E 요소를 선택 (E 요소의 순서만 계산에 포함)
+  * `E::first-child` : 첫 번째 등장하는 요소가 E라면 선택
+  * `E::last-child` : 마지막에 등장하는 요소가 E라면 선택
+  * `E::first-of-type` : E 요소 중 첫 번째 E를 선택
+  * `E::last-of-type` : E 요소 중 마지막 E를 선택
+  * `E::only-child` : E 요소가 유일한 자식이면 선택
+  * `E::only-of-type` : E 요소가 유일한 타입이면 선택
+  * `E::empty` : 텍스트 및 공백을 포함하여 자식 요소가 없는 E를 선택
+* **언어 선택자 (Language pseudo-classes)**
+  * `E::lang(ko)` : HTML lang 속성의 값이 'ko'으로 지정된 요소를 선택
+* **부정 선택자 (Negation pseudo-classes)**
+  * `E::not(S)` : S가 아닌 E 요소를 선택
+* **목적 선택자 (The target pseudo-classes)**
+  * `E::target` : E의 uri가 요청되면 선택 (E는 id가 지정되어 있어야 함)
+* **UI 요소 상태 선택자 (The UI element states pseudo-classes)**
+  * `E::enabled` : 사용 가능한 폼 콘트롤 (input, textarea, select, button) E를 선택
+  * `E::disabled` : 사용 불가능한 폼 콘트롤 (input, textarea, select, button) E를 선택
+  * `E::checked` : 선택된 폼 콘트롤 (input checked="checked")을 선택
+* **가상 엘리먼트 선택자 (Pseudo-Elements)**
+  * `E::first-line` : E 요소의 첫 번째 라인을 선택
+  * `E::first-letter` : E 요소의 첫 번째 문자를 선택
+  * `E::before` : E 요소의 시작 지점에 생성된 요소를 선택
+  * `E::after` : E 요소의 끝 지점에 생성된 요소를 선택

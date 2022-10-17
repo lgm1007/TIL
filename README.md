@@ -19,6 +19,7 @@
   * [스레드와 프로세스](./CS%20(Computer%20Science)/스레드와%20프로세스.md)
   * [OS 데드락](./CS%20(Computer%20Science)/OS%20데드락.md)
   * [메모리 구조](./CS%20(Computer%20Science)/메모리%20구조.md)
+  * [OSI 7 계층](./CS%20(Computer%20Science)/OSI%207계층.md)
 * [Java](./Java)
   * [Stream](./Java/Stream.md)
   * [JVM](./Java/JVM.md)

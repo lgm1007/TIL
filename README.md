@@ -39,6 +39,7 @@
 * [Javascript](./Javascript)
   * [es6 문법](./Javascript/es6%20문법.md)
 * [DB](./DB)
+  * [NoSQL](./DB/NoSQL.md)
 * [OS](./OS)
   * [Vim](OS/linux/Vim.md)
   * [awk 명령어 및 프로세스 ID 확인](./OS/linux/awk명령어%20및%20프로세스%20ID%20확인.md)

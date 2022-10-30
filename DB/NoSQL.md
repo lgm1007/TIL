@@ -24,6 +24,17 @@
 3. 데이터 일관성이 항상 보장되지 않음
 ### NoSQL 종류
 1. **Key-Value Database**
+    * 기본적인 패턴으로 Key-Value 하나의 묶음(Unique)으로 저장되는 구조로 단순한 구조이기에 속도가 빠르며 분산 저장 시 용이함
+    * Key 안에 (Column, Value) 형태로 된 여러 개의 필드(Column Families)를 갖는다.
+    * 주로 **SERVER CONFIG, SESSION CLUSTERING** 등에 사용되며 엑세스 속도는 빠르지만 Scan에는 용이하지 않다.
 2. **Wide-Column Database**
+    * 행마다 키와 해당 값을 저장할 때마다 각각 다른 값, 다른 수의 스키마를 가질 수 있다.
+    * 대량의 데이터 압축, 분산처리, 집계 쿼리 (SUM, COUNT, AVG 등) 및 쿼리 동작 속도, 확장성이 뛰어난 것이 대표적인 특징이다.
 3. **Document Database**
+    * 테이블의 스키마가 유동적이며 레코드마다 각각 다른 스키마를 가질 수 있다.
+    * 보통 XML, JSON과 같은 Document를 이용해 레코드를 저장한다.
+    * 트리형 구조로 레코드를 저장하거나 검색할 때 효과적
 4. **Graph Database**
+    * 데이터를 노드(Node)로 표현하며 노드 사이의 관계를 엣지(Edge)로 표현
+    * 일반적으로 RDBMS 보다 성능이 좋고 유연하며 유지보수에 용이한 것이 특징
+    * **Social Network, Network Diagrams** 등에 사용할 수 있음

@@ -11,6 +11,8 @@
     * [브릿지](./Software%20Architecture/Design%20Pattern/브릿지.md)
     * [컴포지트](./Software%20Architecture/Design%20Pattern/컴포지트.md)
     * [데코레이터](./Software%20Architecture/Design%20Pattern/데코레이터.md)
+  * [아키텍처 패턴](./Software%20Architecture/Architecture%20Pattern)
+    * [이벤트 드리븐 아키텍처](./Software%20Architecture/Architecture%20Pattern/이벤트%20드리븐%20아키텍처.md)
 * [CS (Computer Science)](./CS%20(Computer%20Science))
     * [HTTP의 이해](./CS%20(Computer%20Science)/HTTP의%20이해.md)
     * [스레드와 프로세스](./CS%20(Computer%20Science)/스레드와%20프로세스.md)

@@ -36,6 +36,7 @@
 * [Spring](./Spring)
   * [Spring Boot](./Spring/Spring%20Boot.md)
   * [빌드 관리 도구 (Maven, Gradle)](./Spring/빌드%20관리%20도구%20-%20Maven,%20Gradle.md)
+  * [Hateoas](./Spring/Hateoas.md)
 * [Python](./Python)
   * [List Comprehension](./Python/List%20Comprehension.md)
 * [HTML-CSS](./HTML-CSS)

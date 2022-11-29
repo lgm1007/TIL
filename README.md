@@ -48,6 +48,7 @@
   * [메시지큐](./MQ/메시지큐.md)
   * [Producer Consumer](./MQ/Producer%20Consumer.md)
 * [DB](./DB)
+  * [GRANT (권한 관리)](./DB/Grant.md)
   * [NoSQL](./DB/NoSQL.md)
 * [OS](./OS)
   * [Vim](OS/linux/Vim.md)

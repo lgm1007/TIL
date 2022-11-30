@@ -21,6 +21,7 @@
     * [OSI 7 계층](./CS%20(Computer%20Science)/OSI%207계층.md)
     * [OS 데드락](./CS%20(Computer%20Science)/OS%20데드락.md)
     * [대규모 트래픽 처리 방식](./CS%20(Computer%20Science)/대규모%20트래픽%20처리%20방식.md)
+    * [동시성](./CS%20(Computer%20Science)/동시성.md)
 * [Git](./Git)
   * [git reset](./Git/git%20reset.md)
   * [git stash](./Git/git%20stash.md)

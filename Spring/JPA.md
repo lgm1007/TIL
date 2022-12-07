@@ -16,6 +16,121 @@
 * 자바 애플리케이션에서 관계형 데이터베이스를 사용하는 방식을 정의한 인터페이스
 * 인터페이스이기 때문에 Hibernate, OpenJPA 등이 JPA를 구성
 ### JPA 사용법 (JpaRepository)
+#### Entity Mapping
+* JPA를 사용하기 전에 가장 먼저 해야 할 일은 Entity와 Table을 정확하게 매핑하는 것
+* JPA 매핑 어노테이션은 크게 4가지로 분류할 수 있다.
+	1. 객체(Entity) ↔ 테이블(Table): `@Entity`, `@Table`
+    2. 기본 키(PK; Primary Key): `@Id`
+    3. 필드(Field) ↔ 컬럼(Column): `@Column` 
+	4. 연관관계(FK; Foreign Key): `@ManyToOne`, `@ManyToMany`, `@OneToMany`, `@OneToOne`, `@JoinColumn`
+##### @Entity
+* `@Entity` 어노테이션이 붙은 클래스는 JPA에서 관리하게 된다.
+* **제한사항**
+	* 접근제한자가 `public` 또는 `protected` 인 기본 생성자가 반드시 필요하다.
+    * `final`, `enum`, `interface`, `inner` 클래스에는 사용할 수 없다.
+    * 저장할 필드에 `final`을 사용할 수 없다.
+
+|속성|기능|기본값|
+|---|---|---|
+|name|JPA에서 사용할 엔티티의 이름을 지정 <br/> 이후 JPQL등에서 해당 이름을 사용 <br/> 프로젝트 전체에서 고유한 이름을 설정해야만 충돌 문제가 발생하지 않음|클래스 이름 그대로 사용|
+
+##### @Table
+* 엔티티와 매핑할 DB 테이블을 지정
+* 생략하면 엔티티 이름을 그대로 사용
+
+|속성|기능|기본값|
+|---|---|---|
+|name|엔티티와 매핑할 테이블 이름을 지정|엔티티 이름 그대로 사용|
+|catalog|catalog 기능이 있는 DB에서 catalog 매핑|-|
+|schema|schema 기능이 있는 DB에서 schema 매핑|-|
+|uniqueConstraints|DDL 생성 시 복합 유니크 인덱스 생성 <br/> 뒤에 나올 `@Column`에 더 좋은 기능을 제공하기에 잘 사용하진 않음 <br/> 설정파일의 *DDL 옵션*에 따라 동작|-|
+
+* 설정파일의 *DDL 옵션*
+	* `create` : 애플리케이션 시작 시 모든 스키마를 드랍 후 새로 생성
+    * `create-drop` : 애플리케이션 시작 시 모든 스키마를 드랍 후 생성, 애플리케이션 종료 시 모든 스키마 드랍
+    * `update` : 애플리케이션 시작 시 기존 스키마에서 변경된 내역 적용
+    * `validate` : 애플리케이션 시작 시 스키마가 제대로 매핑되는지 유효성 검사만 진행, 실패하면 애플리케이션 종료
+    * `none` : JPA DDL 옵션 사용하지 않음
+    * **주의** | **DDL 옵션은 항상 신중하게 확인해야 한다!**
+        * 중요한 테이블이 통째로 드랍되거나 데이터가 삭제되는 사고가 발생할 수 있음
+```yaml
+# application.yaml
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+```
+
+##### @Id, @GeneratedValue
+* 일반적으로 `@Id`를 붙인 필드는 테이블의 기본키(PK)와 매핑
+	* 하지만, 반드시 물리적인 기본키와 매핑될 필요는 없다. (식별할 수 있는 값이기만 하면 된다.)
+	* 영속성 컨텍스트에 저장되는 엔티티들이 `@Id`를 key로 하여 HashMap으로 저장되는 특징 때문인 것으로 보임
+* `@Id` 지원 Java 타입
+	* 자바 기본타입(primitive type) : int, long, float, double 등
+    * 자바 래퍼타입(wrapper type) : Integer, Long 등
+    * String
+    * java.util.Date 또는 java.sql.Date
+    * java.math.BigInteger
+    * java.math.BigDecimal
+    * **단, 실무에서는 일반적으로 primitive type은 사용하지 않는다.**
+		* 오브젝트 타입으로 id를 사용하면 `nullable`하기 때문에 값을 초기화하지 않으면 null로 초기화되어 `int` 타입처럼 id 값이 0으로 초기화되는 경우를 방지해주기 때문
+        * 대부분 `Long` 타입을 가장 많이 사용한다.
+* `@GeneratedValue`를 사용하지 않을 경우 아래와 같이 기본키를 직접 할당해야 한다.
+```java
+Member member = new Member();
+member.setId(1L);
+memberRepository.save(member);
+```
+
+* `@GeneratedValue`를 사용할 경우는 다음과 같다.
+```java
+Member member = new Member();
+memberRepository.save(member);
+```
+
+* `@GeneratedValue` 기본키 생성 전략
+	* `@GeneratedValue(strategy = GenerationType.TABLE)`
+	* `@GeneratedValue(strategy = GenerationType.SEQUENCE)`
+	* `@GeneratedValue(strategy = GenerationType.IDENTITY)`
+	* `@GeneratedValue(strategy = GenerationType.AUTO)`
+* 보통 Mysql 또는 Mariadb 를 사용한다면 `IDENTITY`, Oracle 을 사용한다면 `SEQUENCE` 전략을 사용하는 편
+* **주의** | `IDENTITY` 전략 사용 시 insert 쿼리에 대해 쓰기지연 기능이 제대로 동작하지 않을 수 있다. 
+
+##### @Column
+* 엔티티 필드와 테이블 컬럼을 매핑하는 데 사용
+
+|속성|기능|기본값|
+|---|---|---|
+|name|필드와 매핑할 테이블의 컬럼명|객체의 필드명|
+|insertable|엔티티 저장 시 해당 필드도 같이 저장 <br/> false로 설정 시 해당 필드는 DB에 저장하지 않음|true|
+|updatable|엔티티 수정 시 해당 필드도 같이 수정 <br/> false로 설정 시 해당 필드는 DB에 수정하지 않음|true|
+|table|하나의 엔티티를 두 개 이상의 테이블에 매핑할 때 사용|현재 클래스가 매핑된 테이블|
+|nullable|null 허용 여부 <br/> false로 설정 시 DDL 옵션으로 인한 DDL 생성 시 컬럼에 not null 제약 조건이 붙음|true|
+|unique|단일 유니크 인덱스를 생성할 때 사용 <br/> `@Table`의 uniqueConstraints 속성은 복합 유니크 인덱스를 생성할 때 사용함|-|
+|columnDefinition|DB 컬럼 정보를 직접 입력 (Native)|-|
+|length|문자 길이 제약 조건으로, String 에만 사용|255|
+|precision|전체 자릿수(정밀도) 설정 <br/> BigInteger, BigDecimal 타입 사용 시|0|
+|scale|소수점 이하 자리수 설정 <br/> BigInteger, BigDecimal 타입 사용 시|0|
+
+##### Entity 클래스 예제
+```java
+@Entity
+@Table(name = "service_member")
+public class Member {
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	
+	@Column(name = "name")
+	@NotNull
+	private String name;    // not null
+	
+	@Column(name = "age")
+	private Integer age;     // nullable
+}
+```
+
 #### JpaRepository
 * Entity(Domain) 클래스를 작성한 후 Repository 인터페이스를 생성
 * Spring boot에서는 Entity의 기본적인 CRUD가 가능하도록 **JpaRepository 인터페이스**를 제공한다.
@@ -131,4 +246,22 @@ public Ticket insert() {
       }
       ```
 
+### JPA Mysql 컬럼 자료형
+|Java|Mysql|
+|---|---|
+|Byte|tinyint(4)|
+|Short|smallint(6)|
+|Integer|int(11)|
+|Long|bigint(20)|
+|BigDecimal|decimal(19,2)|
+|Float|float|
+|Double|double|
+|Boolean|bit(1)|
+|Date <br/> LocalDate|date|
+|Timestamp <br/> LocalDateTime|datetime|
+|Time|time|
+|String|varchar(255)|
+|Clob|longtext|
+|Byte[][2]|tinyblob|
+|Blob|longblob|
 

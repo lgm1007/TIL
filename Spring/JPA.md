@@ -127,7 +127,7 @@ public class Member {
 	private String name;    // not null
 	
 	@Column(name = "age")
-	private Integer age; // nullable
+	private Integer age;     // nullable
 }
 ```
 

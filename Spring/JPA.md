@@ -131,4 +131,22 @@ public Ticket insert() {
       }
       ```
 
+### JPA Mysql 컬럼 자료형
+|Java|Mysql|
+|---|---|
+|Byte|tinyint(4)|
+|Short|smallint(6)|
+|Integer|int(11)|
+|Long|bigint(20)|
+|BigDecimal|decimal(19,2)|
+|Float|float|
+|Double|double|
+|Boolean|bit(1)|
+|Date <br/> LocalDate|date|
+|Timestamp <br/> LocalDateTime|datetime|
+|Time|time|
+|String|varchar(255)|
+|Clob|longtext|
+|Byte[][2]|tinyblob|
+|Blob|longblob|
 

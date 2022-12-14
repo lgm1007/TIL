@@ -34,4 +34,10 @@ public void scheduleFixedDelayAndInitialDelayTask() {
 ```
 4. **Cron**
 	* 직접 예약으로 수행
-
+	* 예제 코드
+```java
+@Scheduled(cron = "0 15 11 20 * ?") // 매월 15일 오전 11시 20분에 실행
+public void scheduledCronTask() {
+	log.info("Cron scheduled - {}", System.currentTimeMillis() / 1000);
+}
+```

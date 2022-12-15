@@ -40,6 +40,7 @@
   * [JPA](./Spring/JPA.md)
   * [@Transactional](./Spring/Transactional%20어노테이션.md)
   * [@Scheduled](./Spring/Scheduled%20어노테이션.md)
+  * [@Value](./Spring/Value%20어노테이션.md)
   * [Hateoas](./Spring/Hateoas.md)
 * [Python](./Python)
   * [List Comprehension](./Python/List%20Comprehension.md)

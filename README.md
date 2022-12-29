@@ -34,6 +34,7 @@
   * [데이터 타입](./Java/자바의%20데이터타입.md)
   * [Stream](./Java/Stream.md)
   * [JVM](./Java/JVM.md)
+  * [Checked Exception 다루기](./Java/Checked%20Exception.md)
   * [NullPointerException](./Java/NullPointerException.md)
   * [OutOfMemory - GC overhead limit exceeded](./Java/OutOfMemory%20-%20GC%20overhead%20limit%20exceeded.md)
 * [Spring](./Spring)

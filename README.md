@@ -49,6 +49,7 @@
   * [@Value](./Spring/Value%20어노테이션.md)
   * [Hateoas](./Spring/Hateoas.md)
 * [Python](./Python)
+  * [python 설치 (linux)](./Python/python%20설치%20(linux).md)
   * [List Comprehension](./Python/List%20Comprehension.md)
 * [HTML-CSS](./HTML-CSS)
   * [CSS 선택자](./HTML-CSS/CSS%20선택자.md)

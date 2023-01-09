@@ -32,6 +32,7 @@
 * [CI/CD](./CICD)
   * [Github Actions](./CICD/Github%20Actions.md)
   * [Kubernetes](./CICD/Kubernetes.md)
+  * [Amazon EKS](./CICD/Amazon%20EKS.md)
   * [CI/CD와 애자일](./CICD/CICD와%20애자일.md)
 * [Java](./Java)
   * [데이터 타입](./Java/자바의%20데이터타입.md)

@@ -37,6 +37,7 @@
 * [DB](./DB)
     * [GRANT (권한 관리)](./DB/Grant.md)
     * [NoSQL](./DB/NoSQL.md)
+    * [RDS vs EC2](./DB/RDS%20vs%20EC2.md)
 * [Git](./Git)
   * [git reset](./Git/git%20reset.md)
   * [git stash](./Git/git%20stash.md)

@@ -35,6 +35,7 @@
     * [대규모 트래픽 처리 방식](./CS%20(Computer%20Science)/대규모%20트래픽%20처리%20방식.md)
     * [동시성](./CS%20(Computer%20Science)/동시성.md)
 * [DB](./DB)
+	* [DB Transaction](./DB/Transaction.md) 
     * [GRANT (권한 관리)](./DB/Grant.md)
     * [NoSQL](./DB/NoSQL.md)
     * [RDS vs EC2](./DB/RDS%20vs%20EC2.md)

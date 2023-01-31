@@ -25,6 +25,7 @@
 	* [CI/CD와 애자일](./CICD/CICD와%20애자일.md)
     * [Github Actions](./CICD/Github%20Actions.md)
     * [Kubernetes](./CICD/Kubernetes.md)
+    * [무중단 배포](./CICD/무중단%20배포.md)
 * [CS (Computer Science)](./CS%20(Computer%20Science))
     * [HTTP의 이해](./CS%20(Computer%20Science)/HTTP의%20이해.md)
     * [웹상에서의 보안 공격](./CS%20(Computer%20Science)/웹상에서의%20보안%20공격.md)

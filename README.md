@@ -13,6 +13,7 @@
     * [빌더](./Software%20Architecture/Design%20Pattern/빌더.md)
     * [퍼사드](./Software%20Architecture/Design%20Pattern/퍼사드.md)
     * [프로토타입](./Software%20Architecture/Design%20Pattern/프로토타입.md)
+    * [플라이웨이트](./Software%20Architecture/Design%20Pattern/플라이웨이트.md)
     * [싱글턴](./Software%20Architecture/Design%20Pattern/싱글턴.md)
     * [어댑터](./Software%20Architecture/Design%20Pattern/어댑터.md)
     * [브릿지](./Software%20Architecture/Design%20Pattern/브릿지.md)

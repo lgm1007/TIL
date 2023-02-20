@@ -36,3 +36,32 @@
 * 메모리 관리 중요
 * 싱글 스레드 특성 상, 한 번에 하나의 명령만 처리할 수 있음
 	* 처리하는 데 시간이 오래 걸리는 요청이나 명령은 피하는 게 좋음
+### 예제 쿼리
+* SET 명령어를 사용해 **key-value 쌍을 저장**하기
+```redis
+SET key_name value
+```
+* GET 명령어를 사용해 **key에 해당하는 value값 가져오기**
+```redis
+GET key_name
+```
+* INCR 명령어를 사용해 **key에 해당하는 값을 1 증가시키기**
+```redis
+INCR key_name
+```
+* RPUSH 명령어를 사용해 **key에 해당하는 리스트의 끝에 값 추가하기**
+```redis
+RPUSH key_name value
+```
+* LRANGE 명령어를 사용해 **key에 해당하는 리스트의 범위에 해당하는 값 가져오기**
+```redis
+LRANGE key_name value
+```
+* ZADD 명령어를 사용해 **key에 해당하는 정렬된 집합에 값 추가하기**
+```redis
+ZADD key_name score value
+```
+* ZRANGE 명령어를 사용해 **key에 해당하는 정렬된 집합의 범위에 해당하는 값 가져오기**
+```redis
+ZRANGE key_name start_index end_index
+```

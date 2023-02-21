@@ -43,6 +43,7 @@
 	* [NoSQL](./DB/NoSQL)
       * [Redis](./DB/NoSQL/Redis.md)
     * [Relational DB](./DB/R-DB)
+      * [PostgreSQL](./DB/R-DB/PostgreSQL.md)
     * [DB Transaction](./DB/Transaction.md) 
     * [GRANT (권한 관리)](./DB/Grant.md)
     * [RDS vs EC2](./DB/RDS%20vs%20EC2.md)

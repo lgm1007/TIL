@@ -24,6 +24,8 @@
     * [커맨드](./Software%20Architecture/Design%20Pattern/커맨드.md)
   * [아키텍처 패턴](./Software%20Architecture/Architecture%20Pattern)
     * [이벤트 드리븐 아키텍처](./Software%20Architecture/Architecture%20Pattern/이벤트%20드리븐%20아키텍처.md)
+* [API](./API)
+  * [REST API와 RESTful API](./API/REST%20API와%20RESTful%20API.md)
 * [CS (Computer Science)](./CS%20(Computer%20Science))
     * [HTTP의 이해](./CS%20(Computer%20Science)/HTTP의%20이해.md)
     * [웹상에서의 보안 공격](./CS%20(Computer%20Science)/웹상에서의%20보안%20공격.md)

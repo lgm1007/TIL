@@ -3,9 +3,6 @@
 <br/>
 <span style="font-size:22px; font-weight:normal;">Today I Learn</span>
 # TOC
-* [가상화](./Virtualization)
-    * [컴포넌트](./Virtualization/Component.md)
-    * [도커](./Virtualization/Docker.md)
 * [소프트웨어 아키텍처](./Software%20Architecture)
   * [디자인 패턴](./Software%20Architecture/Design%20Pattern)
     * [팩토리 메서드](./Software%20Architecture/Design%20Pattern/팩토리%20메서드.md)
@@ -49,8 +46,11 @@
 	* [Amazon EKS](DevOps/Amazon%20EKS.md)
 	* [ArgoCD](DevOps/ArgoCD.md)
 	* [CI/CD와 애자일](DevOps/CICD와%20애자일.md)
+    * [Component](DevOps/Component.md)
+    * [Docker](DevOps/Docker.md)
 	* [Github Actions](DevOps/Github%20Actions.md)
 	* [Kubernetes](DevOps/Kubernetes.md)
+    * [Virtualization](DevOps/Virtualization.md)
 	* [무중단 배포](DevOps/무중단%20배포.md)
 * [Git](./Git)
   * [git reset](./Git/git%20reset.md)

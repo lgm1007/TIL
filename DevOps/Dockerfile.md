@@ -17,4 +17,67 @@
 	* 도커 컨테이너에서 사용할 포트
 7. 실행 파일
 	* 도커 이미지를 실행할 때 실행할 파일
+### 명령어
+1. `FROM`
+	* 사용할 베이스 이미지 지정
+2. `RUN`
+	* 쉘 명령어 실행
+3. `COPY`/`ADD`
+	* 파일이나 디렉토리를 이미지로 복사
+4. `WORKDIR`
+	* 명령어를 실행할 작업 디렉토리 설정
+5. `ENV`
+	* 환경 변수 설정
+6. `ARG`
+	* 도커파일 내에서 사용할 수 있는 변수 정의
+    * 도커 이미지를 빌드할 때 `--build-arg` 옵션으로 값 전달 가능
+7. `EXPOSE`
+	* 컨테이너가 사용할 포트 지정
+8. `CMD`
+	* 컨테이너가 실행될 때 실행할 명령어 설정
+    * 도커파일에서 마지막으로 지정된 `CMD` 명령이 컨테이너를 실행할 때 실행되는 명령
+      * docker run 명령에서 명령어를 지정하면 `CMD` 명령을 덮어쓰게 됨
+9. `ENTRYPOINT`
+	* 컨테이너가 실행될 때 실행할 명령어 설정
+    * 도커파일에서 지정한 값이 컨테이너가 실행될 때 항상 실행되는 명령어
+    * `CMD` 명령어는 `ENTRYPOINT` 명령의 인자로 전달됨
+      * 즉 `ENTRYPOINT`는 고정된 명령어 설정, `CMD`는 명령어에 인자를 전달하는 용도
+10. `VOLUME`
+	* 호스트와 컨테이너 간에 공유할 디렉토리 설정
+11. `LABEL`
+	* 이미지에 대한 설명이나 버전 정보, 라이선스 등의 정보를 추가하는 용도
+    * `docker inspect` 명령어를 통해 확인 가능
+### 도커파일 예시
+```dockerfile
+ARG USE_PROFILE=service
 
+FROM openjdk:latest
+
+WORKDIR /app
+COPY . /app
+EXPOSE 8080
+
+ENV USE_PROFILE=${USE_PROFILE}
+
+ENTRYPOINT ["bash", "-c", "java -jar -Dspring.profiles.active=${USE_PROFILE} myapp.jar"]
+```
+* `USE_PROFILE` 이라는 변수 설정, 기본값을 `service`로 설정
+* openjdk 이미지를 베이스 이미지로 사용
+* /app 디렉토리에서 애플리케이션 실행
+* 현재 디렉토리에 있는 모든 파일을 /app 디렉토리에 복사
+* 해당 컨테이너에서 8080 포트를 사용
+* `USE_PROFILE` 이라는 환경 변수를 `ARG` 명령어로 정의한 변수 값으로 설정
+* profiles.active=${USE_PROFILE} 프로필로 myapp.jar 파일 실행
+### 도커파일 빌드
+* 일반적인 이미지 생성 명령어
+* ```shell
+  docker build -t <이미지명>:<태그> <Dockerfile 경로>
+  ```
+  * 이미지 명 : 생성할 이미지 이름
+  * 태그 : 버전
+* 예제 - 현재 디렉토리에 도커파일이 존재할 경우
+* ```shell
+  docker build -t myimage:latest .
+  ```
+  * `myimage:latest` 라는 이름의 이미지 생성
+  * `.` : 현재 디렉토리에 도커파일이 있다는 것

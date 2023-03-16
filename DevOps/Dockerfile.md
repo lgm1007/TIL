@@ -20,10 +20,11 @@
 ### 명령어
 1. `FROM`
 	* 사용할 베이스 이미지 지정
+    * Docker Hub에서 제공하는 이미지
 2. `RUN`
 	* 쉘 명령어 실행
 3. `COPY`/`ADD`
-	* 파일이나 디렉토리를 이미지로 복사
+	* 이미지 내 포함하고자 하는 파일이나 디렉토리 명시
 4. `WORKDIR`
 	* 명령어를 실행할 작업 디렉토리 설정
 5. `ENV`
@@ -63,8 +64,9 @@ ENTRYPOINT ["bash", "-c", "java -jar -Dspring.profiles.active=${USE_PROFILE} mya
 ```
 * `USE_PROFILE` 이라는 변수 설정, 기본값을 `service`로 설정
 * openjdk 이미지를 베이스 이미지로 사용
-* /app 디렉토리에서 애플리케이션 실행
-* 현재 디렉토리에 있는 모든 파일을 /app 디렉토리에 복사
+* /app 디렉토리를 컨테이너에서 작업할 디렉토리로 지정
+* 현재 디렉토리에 있는 모든 파일을 이미지 내의 /app 디렉토리에 복사
+  * /app 디렉토리는 이미지 내 & 컨테이너 내부에 생성되는 디렉토리
 * 해당 컨테이너에서 8080 포트를 사용
 * `USE_PROFILE` 이라는 환경 변수를 `ARG` 명령어로 정의한 변수 값으로 설정
 * profiles.active=${USE_PROFILE} 프로필로 myapp.jar 파일 실행

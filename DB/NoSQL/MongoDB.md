@@ -73,6 +73,7 @@
   * ```mongodb-json
     {
         _id: ObjectId(PRODUCT_ID),
+        name: PRODUCT_NAME,
         price: NumberDecimal(PRODUCT_PRICE),
         company: PRODUCT_COMPANY,
         review: [
@@ -93,4 +94,123 @@
         ],
     }
     ```
+### MongoDB 명령어
+#### DDL (Data Definition Language)
+1. use
+   * 데이터베이스를 선택한다.
+```
+use myDatabase
+```
+2. show
+   * 현재 서버에 존재하는 데이터베이스 리스트를 출력하거나 현재 선택된 데이터베이스의 컬렉션 리스트를 출력한다.
+```
+# 현재 서버에 존재하는 데이터베이스 나열
+show dbs
+
+# 현재 선택된 데이터베이스의 컬렉션 리스트 나열
+show collections
+```
+3. db.createCollection()
+   * 새로운 컬렉션을 생성하는 명령어
+```
+db.createCollection("<collectionName>")
+```
+4. db.dropCollection()
+   * 지정한 컬렉션을 삭제하는 명령어
+```
+db.dropCollection("<collectionName">)
+```
+5. db.collection.createIndex()
+   * 인덱스 생성 명령어
+   * fieldName 필드를 1순위로 오름차순 정렬하는 인덱스 생성
+```
+db.collection.createIndex({ fieldName: 1 })
+```
+6. db.collection.dropIndex()
+   * fieldName 필드를 1순위로 오름차순 정렬하는 인덱스 삭제
+```
+db.collection.dropIndex({ fieldName: 1 })
+```
+7. db.createView()
+   * collectionName 컬렉션에서 fieldName 필드의 값이 "value"인 데이터만 뽑아내어 viewName이라는 뷰 생성
+```
+db.createView("viewName", "collectionName", [{ $match: { fieldName: "value" } }])
+```
+8. db.`<viewName>`.drop()
+   * `viewName` 이라는 뷰를 삭제하는 명령어
+```
+db.<viewName>.drop()
+```
+9. db.createUser()
+   * `username` 이라는 사용자 생성
+   * 해당 사용자에 대해 databaseName 데이터베이스의 readWrite 권한 부여
+```
+db.createUser({ user: "username", pwd: "password", roles: [{ role: "readWrite", db: "databaseName" }] })
+```
+10. db.updateUser()
+    * `username` 이라는 사용자의 pwd 값을 업데이트
+```
+db.updateUser("username", { pwd: "newPassword" })
+```
+11. db.dropUser()
+    * `username` 사용자를 삭제
+```
+db.dropUser("username")
+```
+12. db.createRole()
+    * `roleName` 이라는 역할 생성하고, 해당 역할에 대한 databaseName 데이터베이스의 collectionName 컬렉션에서 find, update 권한 부여
+```
+db.createRole({ role: "roleName", privileges: [{ resource: { db: "databaseName", collection: "collectionName" }, actions: ["find", "update"] }], roles: [] })
+```
+13. db.updateRole()
+    * `roleName` 이라는 역할에 대해 `databaseName` 데이터베이스의 `collectionName` 컬렉션에서 find, insert 권한을 부여하도록 업데이트
+```
+db.updateRole({ role: "roleName", privileges: [{ resource: { db: "databaseName", collectionName: "collectionName" }, actions: ["find", "insert"] }]})
+```
+14. db.dropRole()
+    * `roleName` 역할 삭제
+```
+db.dropRole("roleName")
+```
+#### DML (Data Manipulation Language)
+1. db.collectionName.find()
+   * 컬렉션에서 데이터를 검색한다.
+   * 예시) `myCollection` 컬렉션에서 `name` 필드 값이 "John"인 객체 검색
+```
+db.myCollection.find({name: "John"})
+```
+2. db.collectionName.insert()
+   * 컬렉션에 데이터를 삽입한다.
+   * 예시) `myCollection` 컬렉션에 `{name:"John", age:30, email:"john@example.com"}` 객체 삽입
+```
+db.myCollection.insert({name:"John", age:30, email:"john@example.com"})
+```
+3. db.collectionName.update()
+   * 컬렉션의 데이터를 업데이트한다.
+   * 예시) `myCollection` 컬렉션에서 `name` 필드 값이 "John"인 객체의 `age` 필드 값을 35로 업데이트
+```
+db.myCollection.update({name:"John"}, {$set: {age:35}}, {multi:true})
+```
+4. db.collectionName.remove()
+   * 컬렉션의 데이터를 삭제한다.
+   * 예시) `myCollection` 컬렉션에서 `name` 필드 값이 "John"인 객체를 모두 삭제
+```
+db.myCollection.remove({name:"John"})
+```
+5. db.collectionName.aggregate()
+   * 데이터를 집계하고 변환한다.
+   * 예시) `myCollection` 컬렉션에서 `$group` 파이프라인 스테이지를 사용하여 `name` 필드 값을 그룹화하고, 각 그룹별로 `name` 값의 출현 횟수를 `count` 필드로 집계
+```
+db.myCollection.aggregate([{ $group: {_id:"$name", count: {$sum: 1}} }])
+```
+6. db.collectionName.mapReduce()
+   * 데이터를 변환하고 집계한다.
+   * 예시) `myCollection` 컬렉션에서 `myMapFunction` 맵 함수를 적용하여 데이터를 변환하고, `myReduceFunction` 리듀스 함수를 적용하여 집계한 결과를 `myOutputCollection` 컬렉션에 저장
+```
+db.myCollection.mapReduce(myMapFunction, myReduceFunction, {out: "myOutputCollection"})
+```
+#### DCL (Data Control Language)
+* MongoDB에서는 DCL 이라는 명령어 집합이 별도로 제공되지는 않는다.
+  * DCL은 주로 RDBMS에서 사용하는 명령어로, 데이터베이스 객체에 대한 권한을 관리하고 보안을 강화하는 데 사용된다.
+* 대신 MongoDB는 **데이터베이스 사용자 및 권한을 관리**하는 기능을 제공
 

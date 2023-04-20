@@ -68,6 +68,7 @@
   * [Spring](./Java/Spring)
       * [AOP](./Java/Spring/AOP.md)
       * [DI](./Java/Spring/DI.md)
+      * [Spring Batch](./Java/Spring/Spring%20Batch.md)
       * [Spring Boot](./Java/Spring/Spring%20Boot.md)
       * [빌드 관리 도구 (Maven, Gradle)](./Java/Spring/빌드%20관리%20도구%20-%20Maven,%20Gradle.md)
       * [IoC](./Java/Spring/IoC.md)

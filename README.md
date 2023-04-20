@@ -76,6 +76,7 @@
       * [Lombok](./Java/Spring/Lombok.md)
       * [MapStruct](./Java/Spring/MapStruct.md)
       * [Querydsl](./Java/Spring/Querydsl.md)
+      * [@Component와 @Bean](./Java/Spring/@Component와%20@Bean.md)
       * [@Transactional](./Java/Spring/Transactional%20어노테이션.md)
       * [@Scheduled](./Java/Spring/Scheduled%20어노테이션.md)
       * [@Value](./Java/Spring/Value%20어노테이션.md)

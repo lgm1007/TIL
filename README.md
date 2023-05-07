@@ -86,6 +86,7 @@
   * [Checked Exception 다루기](./Java/Checked%20Exception.md)
   * [NullPointerException](./Java/NullPointerException.md)
   * [OutOfMemory - GC overhead limit exceeded](./Java/OutOfMemory%20-%20GC%20overhead%20limit%20exceeded.md)
+  * [UnsupportedOperationException](./Java/UnsupportedOperationException.md)
   * [Optional](./Java/Optional.md)
   * [slf4j](./Java/slf4j.md)
 * [Javascript](./Javascript)

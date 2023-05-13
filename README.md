@@ -14,6 +14,7 @@
     * [플라이웨이트](./Software%20Architecture/Design%20Pattern/플라이웨이트.md)
     * [싱글턴](./Software%20Architecture/Design%20Pattern/싱글턴.md)
     * [어댑터](./Software%20Architecture/Design%20Pattern/어댑터.md)
+    * [인터프리터](./Software%20Architecture/Design%20Pattern/인터프리터.md)
     * [브릿지](./Software%20Architecture/Design%20Pattern/브릿지.md)
     * [컴포지트](./Software%20Architecture/Design%20Pattern/컴포지트.md)
     * [데코레이터](./Software%20Architecture/Design%20Pattern/데코레이터.md)

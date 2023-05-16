@@ -80,6 +80,7 @@
       * [스프링의 HTTP 클라이언트 라이브러리](./Java/Spring/RestTemplate와%20WebClient.md)
       * [@Component와 @Bean](./Java/Spring/@Component와%20@Bean.md)
       * [@Transactional](./Java/Spring/Transactional%20어노테이션.md)
+      * [@TypeDef](./Java/Spring/@TypeDef.md)
       * [@Scheduled](./Java/Spring/Scheduled%20어노테이션.md)
       * [@Value](./Java/Spring/Value%20어노테이션.md)
   * [데이터 타입](./Java/자바의%20데이터타입.md)

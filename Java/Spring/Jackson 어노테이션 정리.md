@@ -172,10 +172,103 @@ public class User {
 * `getAdditionalProperties()` 메서드를 통해 추가적인 속성을 json에 동적으로 직렬화한다.
 * `User` 객체의 추가 속성은 json에 해당 속성의 이름과 값으로 포함된다.
 ### @JsonValue
+* 객체를 json으로 **직렬화할 때 해당 객체의 특정 값을 사용**하도록 하는 어노테이션
+* 객체의 특정 필드나 메서드에 해당 어노테이션을 붙여서, 해당 필드나 메서드가 반환하는 값을 json으로 직렬화할 때 사용한다.
+* 주로 열거형(Enum) 클래스에서 사용되어 열거형 값을 json으로 직렬화할 때 유용하다.
+```java
+public enum Size {
+    SMALL("S"),
+    MEDIUM("M"),
+    LARGE("L");
+    
+    private String abbreviation;
+    
+    private Size(String abbreviation) {
+        this.abbreviation = abbreviation;
+    }
+    
+    @JsonValue
+    public String getAbbreviation() {
+        return abbreviation;
+    }
+}
+```
+* `getAbbreviation()` 메서드에 `@JsonValue` 어노테이션을 추가하여 해당 메서드가 반환하는 값을 직렬화한다.
+* `Size.SMALL`은 "S", `Size.MEDIUM`은 "M", `Size.LARGE`는 "L"로 직렬화한다.
 ### @JsonRawValue
+* **json 문자열을 그대로 직렬화**하고자 할 때 사용하는 어노테이션
+* 일반적으로 Jackson은 문자열을 json 문자열로 감싸서 직렬화하지만, `@JsonRawValue` 어노테이션을 사용하면 **문자열을 그대로 json으로 직렬화**한다.
+```java
+public class RawValueExample {
+    private String jsonString;
+    
+    @JsonRawValue
+    public String getJsonString() {
+        return jsonString;
+    }
+    
+    public void setJsonString(String jsonString) {
+        this.jsonString = jsonString;
+    }
+}
+```
+* `getJsonString()` 메서드에 `@JsonRawValue` 어노테이션을 추가하여 해당 메서드가 반환하는 json 문자열을 그대로 직렬화한다.
+* 즉 `{"key": "value"}`와 같은 문자열이 `{"key": "value"}`로 그대로 직렬화된다.
 ### @JsonSerialize
+* 특정 필드나 메서드에 대해 **직렬화를 커스터마이징하기 위해 사용**하는 어노테이션
+* 해당 필드나 메서드의 값을 반환하거나, 사용자 정의 직렬화 로직을 적용할 수 있다.
+```java
+@JsonSerialize(using = CustomSerializer.class)
+public class CustomSerializeExample {
+    // 필드와 메서드...
+}
+```
+```java
+public class CustomSerializer extends JsonSerializer<CustomSerializeExample> {
+    
+    @Override
+    public void serialize(CustomSerializerExample example, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+        // 원하는 방식으로 필드 값을 변환하거나 로직을 적용하여 직렬화 로직을 작성한다.
+        // 예제 소스에서는 name 필드를 대문자로 변환하여 직렬화하는 로직을 작성했다.
+        String upperCaseName = example.getName().toUpperCase();
+        
+        // json 생성기를 사용하여 필드를 직렬화한다.
+        jsonGenerator.writeStartObject();
+        jsonGenerator.writeStringField("name", upperCaseName);
+        jsonGenerator.writeEndObject();
+    }
+}
+```
+* `CustomSerializeExample` 클래스는 `CustomSerializer`를 사용하여 직렬화를 수행한다.
+  * `CustomSerializer`는 `JsonSerializer` 클래스를 상속받은 사용자 정의 직렬화 클래스로, `CustomSerializeExample` 객체를 직렬화할 때 사용자가 원하는 방식의 값을 반환하거나 로직을 적용할 수 있다.
 ### @JsonPropertyOrder
+* 객체를 직렬화할 때 json 속성의 순서를 지정하는데 사용하는 어노테이션
+* 속성의 순서를 지정하여 json 출력을 예측 가능하게 만들거나, 특정 규칙에 따라 속성을 정렬할 수 있다.
+```java
+@JsonPropertyOrder({ "name", "age", "email" })
+public class Person {
+    private String name;
+    private int age;
+    private String email;
+    
+    // getter, setter 메서드
+}
+```
+* `@JsonPropertyOrder` 어노테이션으로 출력될 json 속성의 순서를 `name`, `age`, `email` 순으로 지정한다.
 ### @JsonRootName
+* json 직렬화 시 최상위 루트 객체의 이름을 지정하는 데 사용하는 어노테이션
+* 일반적으로 Jackson은 최상위 루트 객체의 이름을 클래스 이름으로 사용하지만, 해당 어노테이션을 사용하여 다른 이름으로 지정 가능하다.
+```java
+@JsonRootName("customer")
+public class User {
+    private String name;
+    private int age;
+
+  // getter, setter 메서드
+}
+```
+* `@JsonRootName` 어노테이션으로 json 직렬화 시 최상위 루트 객체의 이름을 `customer`로 지정한다.
+  * json 출력 시 최상위 루트 객체의 이름이 "customer" 로 표시된다.
 ## 역직렬화 어노테이션
 ### @JsonCreator
 ### @JsonSetter

@@ -271,8 +271,93 @@ public class User {
   * json 출력 시 최상위 루트 객체의 이름이 "customer" 로 표시된다.
 ## 역직렬화 어노테이션
 ### @JsonCreator
+* json 데이터를 **역직렬화하여 객체를 생성할 때 사용되는 생성자나 정적 팩토리 메서드를 지정**하는 데 사용된다.
+* 기본적으로 기본 생성자와 setter 메서드를 사용하여 객체를 생성하고 값을 설정하지만, `@JsonCreator` 어노테이션을 사용하면 **직접 생성자나 정적 팩토리 메서드를 지정**하여 객체를 생성할 수 있다.
+```java
+public class Person {
+    private String name;
+    private int age;
+    
+    @JsonCreator
+    public Person(@JsonProperty("name") String name, @JsonProperty("age") int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    // getter, setter 메서드
+}
+```
+* 위 예제는 생성자에 사용한 예제이다.
+```java
+public class Person {
+    private String name;
+    private int age;
+    
+    private Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+    
+    @JsonCreator
+    public static Person createPerson(@JsonProperty("name") String name, @JsonProperty("age") int age) {
+        return new Person(name, age);
+    }
+    
+    // getter, setter 메서드
+}
+```
+* 위 예제는 정적 팩토리 메서드에 사용한 예제이다.
 ### @JsonSetter
+* json 데이터를 역직렬화하여 **객체의 필드에 값을 설정**할 때 사용한다.
+* 기본적으로 setter 메서드를 사용하여 객체의 필드에 값을 설정하지만, `@JsonSetter` 어노테이션을 사용하면 **setter 메서드를 직접 지정**하여 객체의 필드에 값을 설정할 수 있다.
+```java
+public class Person {
+    private String name;
+    private int age;
+    
+    @JsonSetter("personName")
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    @JsonSetter("personAge")
+    public void setAge(int age) {
+        this.age = age;
+    }
+    
+    // getter ...
+}
+```
+* `personName` 필드는 `setName()` 메서드를 통해 `name` 필드에 값을 설정하고, `personAge` 필드는 `setAge()` 메서드를 통해 `age` 필드에 값을 설정한다.
 ### @JsonAnySetter
+* json 역직렬화 시 **알려지지 않은 필드를 동적으로 처리하기 위해** 사용되는 어노테이션
+* 일반적으로는 알려진 필드에 대해서는 매핑이 자동으로 이뤄지지만, 알려지지 않은 필드에 대해서는 자동으로 매핑이 이뤄지지 않는다.
+  * 이럴 때 동적으로 필드를 처리하기 위해 사용하는 어노테이션
+```java
+public class CustomObject {
+    private String name;
+    private Map<String, Object> additionProperties = new HashMap<>();
+    
+    public String getName() {
+        return name;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    @JsonAnySetter
+    public void setAdditionProperties(String key, Object value) {
+        additionProperties.put(key, value);
+    }
+    
+    public Map<String, Object> getAdditionProperties() {
+        return additionProperties;
+    }
+}
+```
+* `@JsonAnySetter` 어노테이션을 사용하여 `setAdditionalProperties()` 메서드를 정의
+* `CustomObject` 객체로 역직렬화할 때 알려지지 않은 필드가 있으면 해당 필드는 `setAdditionalProperties()` 메서드를 통해 동적으로 처리된다.
 ### @JsonDeserialize
 ### @JsonAlias
 ### @JacksonInject

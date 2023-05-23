@@ -76,6 +76,7 @@
       * [IoC](./Java/Spring/IoC.md)
       * [Jackson 어노테이션](./Java/Spring/Jackson%20어노테이션%20정리.md)
       * [JPA](./Java/Spring/JPA.md)
+      * [JPA - @OneToMany, @ManyToOne](./Java/Spring/JPA%20@OneToMany%20@ManyToOne.md)
       * [Lombok](./Java/Spring/Lombok.md)
       * [MapStruct](./Java/Spring/MapStruct.md)
       * [Querydsl](./Java/Spring/Querydsl.md)

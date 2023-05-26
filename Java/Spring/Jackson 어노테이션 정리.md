@@ -359,8 +359,44 @@ public class CustomObject {
 * `@JsonAnySetter` 어노테이션을 사용하여 `setAdditionalProperties()` 메서드를 정의
 * `CustomObject` 객체로 역직렬화할 때 알려지지 않은 필드가 있으면 해당 필드는 `setAdditionalProperties()` 메서드를 통해 동적으로 처리된다.
 ### @JsonDeserialize
+* json 역직렬화 시 특정한 커스텀 역직렬화 클래스를 사용하도록 지정하는 데 사용하는 어노테이션
+* 기본적으로 Jackson은 자동으로 역직렬화를 수행하지만, 특정 필드나 클래스에 대해 커스텀한 역직렬화 로직을 적용하고자 할 때 `@JsonDeserialize` 어노테이션을 사용할 수 있다.
+```java
+@JsonDeserialize(using = CustomDeserializer.class)
+public class MyCustomClass {
+    // fields, constructors, methods
+}
+```
+* `@JsonDeserialize` 어노테이션을 사용해 `MyCustomClass` 클래스에 `CustomDeserializer` 클래스를 사용하여 역직렬화하도록 지정한다.
+* Jackson은 `CustomDeserializer` 클래스의 역직렬화 로직을 사용하여 json 데이터를 `MyCustomClass` 객체로 변환한다.
 ### @JsonAlias
+* json 필드의 다양한 이름에 대한 매핑을 설정하는 데 사용하는 어노테이션
+* json 데이터에 동일한 값을 가진 여러 필드가 있을 때, `@JsonAlias` 어노테이션을 사용하여 해당 필드들을 하나의 Java 필드와 매핑할 수 있다.
+```java
+public class MyData {
+    @JsonAlias({ "name", "fullName" })
+    private String username;
+    
+    // getters, setters ...
+}
+```
+* `@JsonAlias` 어노테이션을 사용하여 `username` 필드를 `name`과 `fullName` 두 개의 json 필드와 매핑하고 있다.
+  * json 데이터에서 `name`이나 `fullName` 필드가 있는 경우 해당 값은 `username` 필드에 매핑된다.
 ### @JacksonInject
+* 주입할 값을 지정하는 데 사용하는 어노테이션
+* 주로 Jackson이 json 데이터를 역직렬화하여 Java 객체로 변환할 때 외부에서 주입된 값을 사용하고자 할 때 사용한다.
+```java
+public class MyData {
+    private String name;
+    
+    @JacksonInject("defaultName")
+    private String defaultName;
+    
+    // getter, setters ...
+}
+```
+* `@JacksonInject` 어노테이션을 사용하여 `defaultName` 필드에 `defaultName` 이라는 이름으로 주입된 값을 사용하도록 지정한다.
+  * 이러면 Jackson은 `defaultName` 필드에 주입된 값을 사용하여 역직렬화한 Java 객체를 생성한다.
 ## Property 포함 어노테이션
 ### @JsonIgnore
 ### @JsonIgnoreProperties

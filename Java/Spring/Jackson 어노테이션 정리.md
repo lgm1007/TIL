@@ -399,8 +399,77 @@ public class MyData {
   * 이러면 Jackson은 `defaultName` 필드에 주입된 값을 사용하여 역직렬화한 Java 객체를 생성한다.
 ## Property 포함 어노테이션
 ### @JsonIgnore
+* **특정 필드를 json 직렬화 및 역직렬화에서 무시**하도록 지정하는 데 사용하는 어노테이션
+* 어떤 필드가 `@JsonIgnore` 어노테이션으로 표시되면 해당 필드는 json 변환 과정에서 무시되며 직렬화 및 역직렬화 대상에서 제외된다.
+```java
+public class MyData {
+    private String username;
+    
+    @JsonIgnore
+    private String password;
+}
+```
+* `password` 필드에 `@JsonIgnore` 어노테이션을 사용하여 json 변환 과정에서 해당 필드를 무시하도록 지정하고 있다.
 ### @JsonIgnoreProperties
+* **특정 클래스나 필드들을 json 직렬화 및 역직렬화를 무시**하도록 지정하는 데 사용하는 어노테이션
+* 클래스 레벨에 `@JsonIgnoreProperties` 어노테이션을 사용하여 **무시할 필드들의 이름을 지정**하거나, 필드 레벨에 사용하여 **해당 필드를 무시**할 수 있다.
+```java
+@JsonIgnoreProperties({ "field1", "field2" })
+public class MyData {
+    private String field1;
+    private String field2;
+    private String field3;
+    
+    // getter, setter ...
+}
+```
+* `field1`과 `field2` 필드들을 json 변환 과정에서 무시하도록 지정하고 있다.
+* 해당 두 필드는 직렬화 및 역직렬화 대상에서 제외된다.
 ### @JsonIgnoreType
+* **특정 타입을 json 직렬화 및 역직렬화에서 무시**하도록 지정하는 어노테이션
+* 일반적으로 클래스 레벨에 `@JsonIgnoreType` 어노테이션을 사용하여 해당 클래스를 무시하도록 지정한다.
+```java
+@JsonIgnoreType
+public class MyInternalData {
+    // fields, constructors, methods ...
+}
+```
+* `MyInternalData` 클래스를 json 변환 과정에서 무시하도록 지정하고 있다.
+* 즉, 해당 클래스의 인스턴스는 직렬화 및 역직렬화 대상에서 제외된다.
 ### @JsonInclude
-### @JsonAutoDetec
-
+* **특정 필드 또는 메서드의 포함여부를 제어**하는 데 사용하는 어노테이션
+* 어떤 필드 또는 메서드가 `@JsonInclude` 어노테이션으로 표시되면, 해당 필드 또는 메서드의 값을 직렬화할 때 포함할지 여부를 지정할 수 있다.
+* **주요 속성**
+  * `JsonInclude.Include` 열거형 값
+    * 필드 또는 메서드의 포함 여부를 설정한다.
+    * 일반적으로 `JsonInclude.Include.NOT_NULL` 등을 사용한다.
+```java
+public class MyData {
+    private String username;
+    
+    @JsonInclude(JsonInclude.Include.NOT_NULL)
+    private String email;
+    
+    // getter, setter ...
+}
+```
+* `email` 필드에 `@JsonInclude` 어노테이션을 사용하여, `NOT_NULL` 속성을 설정하고 있다.
+* 따라서 `email` 필드가 `null`이 아닌 경우에만 직렬화 결과에 포함된다.
+### @JsonAutoDetect
+* 객체의 직렬화 및 역직렬화에 사용할 수 있는 필드 및 메서드의 **가시성을 지정**하는 데 사용하는 어노테이션
+* 기본적으로 Jackson은 `public` 필드 및 `public getter/setter` 메서드만 사용하여 직렬화 및 역직렬화를 수행한다.
+  * `@JsonAutoDetect` 어노테이션을 사용하면 이 동작을 사용자 정의할 수 있다.
+* **주요 속성**
+  * `JsonAutoDetect.Visibility` 열거형 값
+    * 가시성 수준을 설정한다.
+    * `JsonAutoDetect.Visibility.ANY`로 설정하면 모든 필드와 메서드가 사용된다.
+```java
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
+public class MyData {
+    private String username;
+    private String email;
+    
+    // getter, setter ...
+}
+```
+* `@JsonAutoDetect` 어노테이션을 사용하여 필드 가시성을 `ANY`로 설정하여, `username`과 `email` 필드 모두 직렬화 및 역직렬화에 사용된다.

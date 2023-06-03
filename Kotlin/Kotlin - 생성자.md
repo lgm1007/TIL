@@ -52,3 +52,21 @@ class Person(val name: String, val age: Int) {
     }
 }
 ```
+### 초기화
+* 생성자의 파라미터로 받은 값의 유효성을 검사하고 초기화하는 경우 사용하는 방법
+* `init` 블록
+  * 코틀린에서는 주 생성자에 어떠한 코드도 추가될 수 없으며, 초기화 시 필요한 작업(유효성 검증 등)을 하기 위해 `init` 블록을 지원한다.
+  * `init` 블록에는 클래스의 객체가 만들어질 때 실행될 초기화 코드가 들어간다.
+  * 초기화 블록을 주로 **주 생성자**와 함께 사용한다.
+```kotlin
+class Class(val nameParam: String) {
+    val name: String
+
+    init {
+        if (nameParam.isEmpty()) {
+            throw IllegalArgumentException("Error")
+        }
+        this.name = nameParam
+    }
+}
+```

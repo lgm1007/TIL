@@ -47,10 +47,91 @@ fun main(args: Array<String>) {
 ```
 ### 필터
 1. **filter()**
+   * 컬렉션 내 인자들 중 **주어진 조건과 일치하는 인자만 걸러**주는 함수
+```kotlin
+fun main(args: Array<String>) {
+    val cities = listOf("Seoul", "Tokyo", "Beijing")
+   
+   cities.filter { city -> city.length == 5 }
+           .forEach { println(it) }   // Seoul, Tokyo
+}
+```
 2. **take()**
+   * take()
+     * 컬렉션 내 인자들 중 앞에서 `take()` 함수의 **인자로 받은 개수만큼**을 인자로 갖는 리스트를 반환하는 함수
+   * takeLast()
+     * `take()` 함수와 반대로 뒤에서부터 적용해 반환하는 함수
+   * takeWhile()
+     * **첫 번째 인자부터 시작**하여 **주어진 조건을 만족하는 인자까지를 포함하는** 리스트를 반환하는 함수
+   * takeLastWhile()
+     * `takeWhile()` 함수와 반대로 뒤에서부터 적용해 반환하는 함수
+```kotlin
+fun main(args: Array<String>) {
+    val cities = listOf("Seoul", "Tokyo", "Beijing", "NYC", "London")
+   
+   cities.take(2)
+           .forEach { println(it) }     // Seoul, Tokyo
+   
+   cities.takeLast(3)
+           .forEach { println(it) }     // Beijing, NYC, London
+   
+   cities.takeWhile { city -> city.length <= 5 }
+           .forEach { println(it) }     // Seoul, Tokyo, NYC
+   
+   cities.takeLastWhile { city -> city.length > 5 }
+           .forEach { println(it) }     // London, Beijing
+}
+```
 3. **drop()**
+   * `take()` 함수의 반대 역할을 하여, 조건을 만족하는 항목을 컬렉션에서 제외한 결과를 반환하는 함수
+```kotlin
+fun main(args: Array<String>) {
+    val cities = listOf("Seoul", "Tokyo", "Beijing", "NYC", "London")
+   
+   cities.drop(2)
+           .forEach { printl(it) }      // Beijing, NYC, London
+   
+   cities.dropLast(3)
+           .forEach { println(it) }     // Tokyo, Seoul
+   
+   cities.dropWhile { city -> city.length <= 5 }
+           .forEach { println(it) }     // Beijing, London
+   
+   cities.dropLastWhile { city -> city.length > 5 }
+           .forEach { println(it) }     // NYC, Tokyo, Seoul
+}
+```
 4. **first(), last()**
+   * 컬렉션 내 첫 번째 인자를 반환하는 함수
+   * 단순히 리스트 내 첫 번째 인자를 반환하는 것 뿐 아니라, 특정 조건을 만족하는 첫 번째 인자를 반환하는 것도 가능하다.
+     * 조건을 만족하는 인자가 없을 경우 `NoSuchElementException` 예외를 발생시키며, `firstOrNull()` 함수를 사용하면 Null 값을 반환하도록 할 수도 있다.
+```kotlin
+fun main(args: Array<String>) {
+    val cities = listOf("Seoul", "Tokyo", "Beijing", "NYC", "London")
+   
+   println(cities.first())  // Seoul
+   
+   println(cities.last())   // London
+   
+   println(cities.first { it.length > 5 })  // Beijing
+   
+   println(cities.firstOrNull { it.length > 10 })   // Null
+}
+```
 5. **distinct()**
+   * 컬렉션 내에 포함된 항목 중 중복된 항목을 걸러낸 결과를 반환하는 함수
+   * 항목의 중복 여부는 `equals()`로 판단하며, `distinctBy()` 함수를 사용하면 비교에 사용할 키 값을 직접 설정할 수 있다.
+```kotlin
+fun main(args: Array<String>) {
+    val cities = listOf("Seoul", "Tokyo", "Beijing", "Seoul", "Tokyo")
+   
+   cities.distinct()
+           .forEach { println(it) }     // Seoul, Tokyo, Beijing
+   
+   cities.distinctBy { it.length }  // length를 판단 기준으로 사용하도록 한다.
+           .forEach { println(it) } // Seoul, Beijing   (Tokyo는 Seoul과 같은 5글자로 중복 제거된 상태)
+}
+```
 ### 조합 또는 합계
 1. **zip()**
 2. **joinToString()**

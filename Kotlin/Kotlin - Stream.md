@@ -134,10 +134,67 @@ fun main(args: Array<String>) {
 ```
 ### 조합 또는 합계
 1. **zip()**
+   * **두 컬렉션을 조합**하여 새로운 컬렉션을 만들어주는 함수
+```kotlin
+fun main(args: Array<String>) {
+    val names = listOf("Kim", "Lee", "Park", "Choi")
+    val age = lsitOf(32, 28, 30, 36)
+   
+   names.zip(age)
+           .forEach { println(it) } // (Kim, 32) (Lee, 28) (Park, 30) (Choi, 36)
+   
+   names.zip(age) { name, age -> "$name 는 $age 살입니다." }
+           .forEach { println(it) } // Kim 는 32 살입니다. Lee 는 28 살입니다. Park 는 30 살입니다. Choi 는 36 살입니다.
+}
+```
 2. **joinToString()**
+   * 컬렉션을 **문자열로 변환**하여 한 문자열로 반환한다.
+```kotlin
+fun main(args: Array<String>) {
+    val names = listOf("Kim", "Lee", "Park", "Choi")
+   
+   println(names.joinToString())     // Kim, Lee, Park, Choi
+   
+   println(names.joinToString(" "))  // Kim Lee Park Choi
+   
+   println(names.joinToString { it -> "$it 입니다." })  // Kim 입니다., Lee 입니다., Park 입니다., Choi 입니다.
+}
+```
 3. **count()**
+   * 컬렉션 내 포함된 **자료의 개수**를 반환하는 함수
+```kotlin
+fun main(args: Array<String>) {
+    val names = listOf("Kim", "Lee", "Park", "Choi")
+   
+   println(names.count())    // 4
+   
+   println(names.count { name -> name.length > 3 })  // 2
+}
+```
 4. **reduce()**
+   * 컬렉션 내 자료들을 **모두 합쳐 하나의 값**으로 만들어주는 함수
+```kotlin
+fun main(args: Array<String>) {
+    val numbers = listOf(1, 2, 3, 4, 5)
+    val strList = listOf("a", "b", "c")
+   
+   println(names.reduce { acc, s -> acc + s })  // 15  <- (1 + 2 + 3 + 4 + 5 를 한 값)
+   
+   println(strList.reduce { acc, str -> acc + str })    // abc
+}
+```
 5. **fold()**
+   * 컬력션 내 자료들을 **모두 합쳐 하나의 값**으로 만들어주면서 **초기값을 지정할 수 있는** 함수
+```kotlin
+fun main(args: Array<String>) {
+    val numbers = listOf(1, 2, 3, 4, 5)
+    val strList = listOf("a", "b", "c")
+   
+   println(numbers.fold(20) { acc, s -> acc + s })  // 35  <- (20 + 1 + 2 + 3 + 4 + 5)
+
+   println(strList.fold("this is ") { acc, str -> acc + str })    // this is abc
+}
+```
 ### 부가 기능
 1. **any()**
 2. **none()**

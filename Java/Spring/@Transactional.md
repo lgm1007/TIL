@@ -79,7 +79,7 @@ public class MemberService {
           * `JpaTransactionManager` 에서는 지원하지 않음
 3. `readOnly`
 	* 기본값은 `false`며 `true`로 세팅하는 경우 트랜잭션을 읽기 전용으로 변경함
-    * 성능 향상을 위해 사용하거나 읽기 외 다른 동작을 방지하기 위해 사용하기도 함
+    * **성능 향상**을 위해 사용하거나 읽기 외 다른 동작을 방지하기 위해 사용하기도 함
 4. `rollbackFor`
 	* 사용법: `@Transactional(rollbackFor = {IOException.class, ClassNotFoundException.class})`
     * 사용 시 `@Transactional(rollbackFor = IOException.class)` 처럼 Exception을 하나만 지정한다면 중괄호 생략 가능
@@ -89,4 +89,13 @@ public class MemberService {
     * 지정된 시간 내에 해당 메서드 수행이 완료되지 않는 경우 `JpaSystemException` 발생
     * `JpaSystemException`은 `RuntimeException`을 상속받기 때문에 데이터는 롤백 처리됨
     * 초 단위로 지정할 수 있으며 -1 값으로 지정할 경우 timeout을 지원하지 않음
-
+### 왜 `@Transactional(readOnly = true)` 설정일 때 성능이 향상되는가?
+* JPA의 영속성 컨텍스트가 수행하는 **변경 감지**(Dirty Checking)와 관련이 있다.
+  * **변경 감지?**
+    * 영속성 컨텍스트는 Entity 조회 시 초기 상태에 대한 스냅샷을 저장한다.
+    * 트랜잭션이 Commit 될 때, 초기 상태의 정보를 가지는 스냅샷과 Entity의 상태를 비교하여 변경된 내용에 대해 update query 로 쓰기 지연 저장소에 저장한다.
+    * 그 후 일괄적으로 쓰기 지연 저장소에 저장되어 있는 SQL query를 flush 하고 데이터베이스의 트랜잭션을 Commit 함으로서, 우리가 **update와 같은 메서드를 사용하지 않고도 Entity의 수정**이 이루어진다. 이를 **변경 감지**라고 한다.
+  * `readOnly = true` 로 설정하게 되면 스프링 프레임워크는 JPA의 세션 **플러시 모드를 수동**으로 설정해, 사용자가 수동으로 `flush()` 호출하지 않으면 flush가 수행되지 않게 한다.
+    * 트랜잭션 내에서 강제로 `flush()`를 호출하지 않으면, 수정 내역에 대해 DB에 적용되지 않는다.
+    * 이로 인해 트랜잭션 Commit 시 영속성 컨텍스트가 **자동으로 flush 되지 않으므로** 조회용으로 가져온 **Entity의 예상치 못한 오류를 방지**할 수 있다.
+  * 또한 `readOnly = true` 를 설정하게 되면 JPA는 해당 트랜잭션 내에서 조회하는 Entity는 조회용임을 인식하고 **변경 감지를 위한 스냅샷을 따로 보관하지 않으므로 메모리가 절약**되는 성능상 이점 또한 존재하게 된다.

@@ -3,7 +3,6 @@
 |-|Checked Exception|Unchecked Exception|
 |---|---|---|
 |처리 여부|반드시 예외처리 해야 함|예외처리 하지 않아도 됨|
-|트랜잭션 Rollback 여부|Rollback 안 됨|Rollback 진행|
 |대표 Exception|IOException <br/> SQLException|NullPointerException <br/> IllegalArgumentException|
 * Unchecked Exception은 **RuntimeException을 상속**
 * Checked Exception은 RuntimeException을 **상속하지 않음**

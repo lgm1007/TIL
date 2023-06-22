@@ -22,6 +22,9 @@
 * `orElse(T other)`
     * Optional 객체 안에 값이 존재하는 경우 해당 값을 반환한다.
     * 그렇지 않은 경우 **인자로 전달된 기본값(other)을** 반환한다.
+* `orElseGet(Supplier<? extends T> supplier)`
+    * Optional 객체 안에 값이 존재하는 경우 해당 값을 반환한다.
+    * 그렇지 않은 경우 대체 값을 제공하기 위해 `supplier`의 `get()` 메서드를 호출하여 대체 값을 반환한다.
 * `map(Function<T, R> mapper)`
     * Optional 객체 안에 있는 값을 인자로 받아 처리하는 **함수(mapper)를 적용하고, 처리한 결과**를 Optional 객체로 반환한다.
 * `flatMap(Function<T, R> mapper)`
@@ -47,4 +50,24 @@ public class OptionalExample {
 }
 ```
 * 문자열을 입력으로 받아 문자열의 길이가 5 이하인 경우 해당 문자열을 출력하고, 그렇지 않은 경우에는 "Too long" 이라는 메시지를 출력하는 예제 소스
+### `orElse()`와 `orElseGet()` 차이점
+* 보통 `orElse()`는 **null 여부와 상관없이** 동작하고, `orElseGet()`은 **null 일 때에만** 동작한다고 알려져 있다.
+* Optional 클래스의 내부에서 메서드를 살펴보면 다음과 같다.
+```java
+return value != null ? value : other;   // orElse(T other)
+return value != null ? value : other.get()  // orElseGet(Supplier<? extends T> supplier)
+```
+* `orElseGet(Supplier<? extends T> supplier)` 메서드는 value가 null 이면 `other`을 바로 실행하지 않고 `other.get()`을 실행한다.
+  * 따라서 null이 아닐 때는 실행되지 않는 것
+```java
+public T orElse(getAnyName()) {
+    return value != null ? value : getAnyName();
+}
 
+public String getAnyName() {
+    return "anyName";
+}
+```
+* 만약 위와 같이 `orElse(T other)` 에서 other이 메서드일 경우를 보면
+  * `getAnyName()` 메서드가 반환하는 문자열인 "anyName" 값이 `T` 제네릭 변수에게 필요하기 때문에 우선 `getAnyName()` 메서드를 실행하게 된다.
+  * 그래서 null 여부와 상관없이 동작한다는 의미

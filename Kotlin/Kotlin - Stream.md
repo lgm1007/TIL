@@ -197,4 +197,22 @@ fun main(args: Array<String>) {
 ```
 ### 부가 기능
 1. **any()**
+    * 컬렉션 내 **단 하나의 자료라도 존재**하면 true, 그렇지 않으면 false를 반환하는 함수
+    * 인자로 조건식을 전달할 경우, 해당 조건식을 만족하는 자료의 유무 여부를 반환한다.
+```kotlin
+fun main(args: Array<String>) {
+    val cities = listOf("Seoul", "Tokyo", "London", "NYC", "Singapore")
+    
+    println(cities.any { it.length >= 5 })  // true
+}
+```
 2. **none()**
+   * `any()` 메서드와 반대 작업을 수행하며, 컬렉션이 비어있는지 여부를 반환하는 함수
+   * 인자로 조건식을 전달할 경우, 해당 조건식에 만족하는 자료의 유무 여부를 반환한다.
+```kotlin
+fun main(args: Array<String>) {
+    val cities = listOf("Seoul", "Tokyo", "London", "NYC", "Singapore")
+    
+    println(cities.none { it.length >= 10 })    // true
+}
+```

@@ -72,6 +72,7 @@
       * [JPA](./Java/Spring/JPA.md)
         * [JPA 엔티티 생명주기](./Java/Spring/JPA%20Entity%20생명주기.md)
         * [JPA - @OneToMany, @ManyToOne](./Java/Spring/JPA%20@OneToMany%20@ManyToOne.md)
+        * [N + 1 문제](./Java/Spring/JPA%20n+1.md)
         * [@Transactional](./Java/Spring/@Transactional.md)
         * [@Transient](./Java/Spring/@Transient.md)
       * [AOP](./Java/Spring/AOP.md)

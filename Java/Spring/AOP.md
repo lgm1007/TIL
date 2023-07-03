@@ -23,11 +23,15 @@
 4. **Weaving**
     * Aspect를 적용하는 과정이다.
     * Aspect가 적용되어 동작할 수 있도록 코드에 삽입하는 것을 의미한다.
+### AOP 주 사용처
+1. 로깅
+2. 트랜잭션 관리
+3. 보안
 ### AOP 적용 방법
-1. **@Aspect 어노테이션**
-    * Aspect 클래스를 작성하고 @Aspect 어노테이션을 클래스에 붙여준다.
-    * @Before, @After, @Around 등의 Advice 어노테이션을 사용하여 메서드 실행 전/후, 예외 발생 시 등에 실행될 코드를 작성한다.
-    * 이후 @Pointcut 어노테이션을 사용하여 Advice가 실행될 Join point를 지정한다.
+1. **어노테이션 기반** 설정
+    * `@Aspect` 어노테이션을 사용하여 Aspect 클래스를 정의하고, `@Pointcut` 어노테이션을 사용하여 Pointcut을 정의한다.
+    * Advice 메서드에는 `@Before`, `@After`, `@Around` 등의 Advice 어노테이션을 사용하여 메서드 실행 전/후, 예외 발생 시 등에 실행될 코드를 작성한다.
+    * 이후 `@Pointcut` 어노테이션을 사용하여 Advice가 실행될 Join point를 지정한다.
     * ```java
       @Aspect
       @Component
@@ -38,82 +42,8 @@
         }
       }
       ```
-2. Proxy 기반 AOP
-    * Spring 에서는 Proxy 기반 AOP를 사용한다.
-    * Proxy는 Target 객체와 Interface를 이용하여 생성된다.
-    * Proxy 객체는 Target 객체의 메서드 호출을 가로채 Advice를 실행하고, 그 결과를 반환한다.
-    * ```java
-      public interface UserService {
-        void addUser(User user);
-        void deleteUser(int userId);
-        List<User> getUsers();    
-      }
-      
-      public class UserServiceImpl implements UserService {
-        private final List<User> users = new ArrayList<User>();
-      
-        public void addUser(User user) {
-            users.add(user);
-        }
-      
-        public void deleteUser(int userId) {
-            for (User user : users) {
-                if (user.getId() == userId) {
-                    users.remove(user);
-                    break;
-                }
-            }
-        }
-      
-        public List<User> getUsers() {
-          return users;
-        }
-      }
-
-      public class UserServiceLoggingProxy implements UserService {
-        private final UserService userService;
-      
-        public UserServiceLoggingProxy(UserService userService) {
-            this.userService = userService;
-        }
-      
-        @Override
-        public void addUser(User user) {
-            System.out.println("Before adding user...");
-            userService.addUser(user);
-            System.out.println("After adding user...");
-        }
-      
-        @Override
-        public void deleteUser(int userId) {
-            System.out.println("Before deleting user...");
-            userService.deleteUser(userId);
-            System.out.println("After deleting user...");
-        }
-      
-        @Override
-        public List<User> getUsers() {
-            System.out.println("Before getting user...");
-            List<User> users = userService.getUsers();
-            System.out.println("After getting user...");
-            return users;
-        }
-      }
-      
-      public class Main {
-        public static void main(String[] args) {
-          UserService userService = new UserServiceImpl();
-          UserService proxy = new UserServiceLoggingProxy();
-      
-          proxy.addUser(new User(1, "Apple"));
-          proxy.addUser(new User(2, "Banana"));
-      
-          proxy.getUsers();
-      
-          proxy.deleteUser(1);
-        }
-      }
-      ```
-      * `UserServiceLoggingProxy` 클래스를 사용하여 인터페이스의 구현체(`UserServiceImpl`)을 호출하면서 특정한 메서드 호출 전/후에 로그를 출력할 수 있게 된다.
+2. XML 기반 설정
+    * XML 설정 파일에 `<aop:config>` 요소를 사용하여 Aspect와 Pointcut, Advice를 정의한다.
+    * `<aop:config>` 요소 내에서 `<aop:aspect>` 요소를 사용하여 Aspect를 정의하고, `<aop:pointcut>`과 `<aop:advice>` 요소를 사용하여 Pointcut과 Advice를 정의한다.
 
 

@@ -33,17 +33,88 @@
     * Advice 메서드에는 `@Before`, `@After`, `@Around` 등의 Advice 어노테이션을 사용하여 메서드 실행 전/후, 예외 발생 시 등에 실행될 코드를 작성한다.
     * 이후 `@Pointcut` 어노테이션을 사용하여 Advice가 실행될 Join point를 지정한다.
     * ```java
+      // LoggingAspect.java
       @Aspect
       @Component
       public class LoggingAspect {
-        @Before("execution(public * com.example.demo.service.*.*(..))")
-        public void logBefore(JoinPoint joinPoint) {
-            System.out.println("Method " + joinPoint.getSignature().getName() + " is called.");
+        @Before("execution(* com.example.service.*.*(..))")
+        public void beforeAdvice() {
+            System.out.println("메서드 실행 전 로깅 수행");
         }
+      }
+      
+      // UserService.java
+      @Service
+      public class UserService {
+        public void createUser(String name) {
+            System.out.println("사용자 생성: " + name);
+        }
+      }
+      
+      // MainApp.java
+      public class MainApp {
+        public static void main(String[] args) {
+            ApplicationContext context = new ApplicationConfigApplicationContext(AppConfig.class);
+            UserService userService = context.getBean(UserService.class);
+            userService.createUser("John");
+        }
+      }
+      
+      // AppConfig.java
+      @Configuration
+      @EnableAspectJAutoProxy
+      @ComponentScan(basePackages = "com.example")
+      public class AppConfig {
       }
       ```
 2. XML 기반 설정
     * XML 설정 파일에 `<aop:config>` 요소를 사용하여 Aspect와 Pointcut, Advice를 정의한다.
     * `<aop:config>` 요소 내에서 `<aop:aspect>` 요소를 사용하여 Aspect를 정의하고, `<aop:pointcut>`과 `<aop:advice>` 요소를 사용하여 Pointcut과 Advice를 정의한다.
+    * ```xml
+      <!-- applicationContext.xml -->
+      <beans xmlns:aop="http://www.springframework.org/schema/aop"
+      xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+        <!-- Aspect 정의 -->
+        <aop:config>
+           <aop:aspect id="loggingAspect" ref="loggingAspectBean">
+               <!-- Pointcut 정의 -->
+               <aop:pointcut id="executionPointcut" expression="execution(* com.example.service.*.*(..))" />
+               <!-- Advice 정의 -->
+               <aop:before pointcut-ref="executionPointcut" method="beforeAdvice" />
+           </aop:aspect>
+        </aop:config>
+   
+        <!-- Aspect Bean 정의 -->
+        <bean id="loggingAspectBean" class="com.example.aspect.LoggingAspect" />
+   
+        <!-- 서비스 Bean 정의 -->
+        <bean id="userService" class="com.example.service.UserService" />
+      </beans>
+      ```
+   * ```java
+     // LoggingAspect.java
+     public class LoggingAspect {
+        public void beforeAdvice() {
+            System.out.println("메서드 실행 전 로깅 수행");
+        }
+     }
+     
+     // UserService.java
+     public class UserService {
+        public void createUser(String name) {
+            System.out.println("사용자 생성: " + name);
+        }
+     }
+     
+     // MainApp.java
+     public class MainApp {
+        public static void main(String[] args) {
+            ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+            UserService userService = (UserService) context.getBean("userService");
+            userService.createUser("John");
+        }
+     }
+     ```
 
 

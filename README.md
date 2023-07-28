@@ -110,6 +110,8 @@
     * [2. 생성자](./Kotlin/Kotlin%20-%20생성자.md)
     * [3. 표준 라이브러리 - Stream](./Kotlin/Kotlin%20-%20Stream.md)
 * [MQ](./MQ)
+    * [Kafka](./MQ/Kafka)
+        * [Offset 관리](./MQ/Kafka/Offset%20관리.md)
     * [메시지큐](./MQ/메시지큐.md)
     * [AWS SQS](./MQ/AWS%20SQS.md)
     * [Producer Consumer](./MQ/Producer%20Consumer.md)

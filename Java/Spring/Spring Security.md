@@ -48,4 +48,89 @@
    * 권한 부여 결정을 처리하는 인터페이스
 * **FilterChain**
    * 여러 보안 필터를 순차적으로 적용하는 역할
+### Spring Security 예제
+1. 의존성 추가
+    * Spring Boot 프로젝트인 경우, `spring-boot-starter-security` 의존성 추가
+2. Spring Security 설정
+```java
+@Configuration
+@EnableWebSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+	
+	@Override
+    protected void configure(HttpSecurity http) throws Exception {
+		http.authorizeRequests()
+                .antMatchers("/", "/home").permitAll()
+                .anyRequest().authenticated()
+                .and()
+                .formLogin().loginPage("/login").permitAll()
+                .and()
+                .logout().permitAll();
+    }
+	
+	@Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.inMemoryAuthentication()
+                .withUser("user").password("{noop}password").roles("USER");
+    }
+}
+```
+3. 컨트롤러 및 페이지 추가
 
+```java
+@Controller
+public class HomeController {
+	
+	@GetMapping("/")
+    public String home() {
+		return "home";
+    }
+}
+
+@Controller
+public class LoginController {
+	
+	@GetMapping("/login")
+    public String login() {
+		return "login";
+    }
+}
+```
+<br/>
+
+home.html
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Welcome to the Home Page!</h1>
+</body>
+</html>
+
+```
+<br/>
+
+login.html
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login Page</h1>
+    <form th:action="@{/login}" method="post">
+        <div><label>Username: <input type="text" name="username" /></label></div>
+        <div><label>Password: <input type="password" name="password" /></label></div>
+        <div><input type="submit" value="Log in" /></div>
+    </form>
+</body>
+</html>
+
+```
+
+* 위 예제는 기본적인 Spring Security 설정을 구상한 것으로, 루트 경로와 `/home` 경로는 모두 접근이 허용되며, `/login` 페이지는 로그인 페이지로 접근할 수 있다. `username`과 `password`는 `user` 및 `password`로 하드코딩된 사용자 정보와 매칭된다.
+* `http://localhost:8080/login` 로 로그인 페이지에 접속하여 `user`/`password`로 로그인하면 홈 페이지에 접속할 수 있다.

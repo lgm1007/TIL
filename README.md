@@ -83,6 +83,7 @@
       * [Spring Security](./Java/Spring/Spring%20Security.md)
       * [Spring-Retry](./Java/Spring/Spring-retry.md)
       * [빌드 관리 도구 (Maven, Gradle)](./Java/Spring/빌드%20관리%20도구%20-%20Maven,%20Gradle.md)
+      * [패키지 구성 방법](./Java/Spring/패키지%20구성%20방법.md)
       * [IoC](./Java/Spring/IoC.md)
       * [Jackson 어노테이션](./Java/Spring/Jackson%20어노테이션%20정리.md)
       * [Lombok](./Java/Spring/Lombok.md)

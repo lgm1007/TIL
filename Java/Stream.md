@@ -55,4 +55,21 @@ colorSet.forEach(x -> System.out.println(x));               // 출력: blue brow
     5. 요소의 통계: **count()**, **min()**, **max()**
     6. 요소의 연산: **sum()**, **average()**
     7. 요소의 수집: **collect()**
+#### allMatch() 사용 시 주의할 점
+* `allMatch()`는 컬렉션 내 모든 요소들이 주어진 조건에 만족하는지 여부를 검사하는 메서드이다.
+* 하지만 만약 컬렉션이 **비어있는 경우**라면 어떨까?
+```java
+@Test
+public void allMatchTestWhenEmpty() {
+	List<Member> members = new AraryList<>();
+	
+	boolean result = members.stream()
+        .allMatch(member -> member.getAge() > 20);
+	
+	assertThat(result).isFalse();
+}
+```
+* `members` 회원 리스트가 비어있고 20살 이상의 회원이 한 명도 없기 때문에 조건에 맞지 않아 `false`를 반환할 것으로 보통 예상할 것이다.
+* 하지만 `allMatch()` 메서드는 `true`를 반환한다.
+* 이는 **Vacuous Truth** 라는 논리학 개념에서 비롯된 것으로, `P이면 Q이다.` 라는 명제에서 P가 거짓이면 Q는 참이던 거짓이던 상관없이 전체 명제는 참이 된다는 개념이다.
 

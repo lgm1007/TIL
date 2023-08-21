@@ -134,3 +134,5 @@
     * [python 설치 (linux)](./Python/python%20설치%20(linux).md)
     * [python 삭제 (linux)](./Python/python%20삭제%20(linux).md)
     * [List Comprehension](./Python/List%20Comprehension.md)
+* [Trouble Shooting](./TroubleShooting)
+    * [JPA - could not initialize proxy - no Session](./TroubleShooting/JPA-could%20not%20initialize%20proxy.md)

@@ -109,6 +109,7 @@
   * [slf4j](./Java/slf4j.md)
 * [Javascript](./Javascript)
     * [es6 문법](./Javascript/es6%20문법.md)
+    * [JS에서의 동기/비동기](./Javascript/JS의%20동기%20및%20비동기.md)
 * [Kotlin](./Kotlin)
     * [1. 기초 문법](./Kotlin/Kotlin%20-%20기초문법.md)
     * [2. 생성자](./Kotlin/Kotlin%20-%20생성자.md)

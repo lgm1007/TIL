@@ -8,7 +8,7 @@
 3. `boolean isDone()`: 작업이 완료되었는지 여부를 반환한다.
 4. `V get() throws InterruptedException, ExecutionException`: 작업의 결과를 가져온다. 작업이 완료될 때까지 블록된다. 만약 작업이 이미 취소되었다면 `CancellationException`이 발생하고, 작업 실행 중 예외가 발생하면 `ExecutionException`이 발생한다.
 5. `V get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException`: 일정 시간 동안 작업의 결과를 가져온다. 지정된 시간 안에 작업이 완료되지 않으면 `TimeoutException`이 발생한다.
-### 비동기적 프로그래밍 처리 방법
+### Future의 비동기적 프로그래밍 처리 방법
 `Future`를 사용하여 비동기적 작업을 처리하는 일반적인 방법은 아래와 같다.
 
 1. **작업 생성**: `ExecutorService` 또는 `CompletableFuture` 등을 사용하여 비동기 작업을 생성한다.
@@ -37,5 +37,16 @@ try {
 executor.shutdown();
 ```
 * Java 8 부터는 `CompletableFuture`와 같은 더 강력하고 편리한 비동기 프로그래밍 기능이 추가되었다.
-### CompletableFuture 인터페이스
-
+### CompletableFuture 클래스
+* Future 인터페이스에서는 다음과 같은 단점이 존재한다.
+1. 외부에서 완료시킬 수 없고 `get()` 메서드의 타임아웃 설정으로만 완료 가능
+2. `get()`을 통해서만 이후의 결과를 처리할 수 있다.
+3. 여러 `Future`를 조합할 수 없다.
+* 기존 `Future` 인터페이스를 기반으로 외부에서 완료시킬 수 있는 클래스인 `CompletableFuture`가 탄생했다.
+### CompletableFuture의 장점
+* `Future`와 달리 외부에서 명시적으로 Complete를 시킬 수 있다.
+* 명시적으로 `Executor`를 사용할 필요가 없다.
+  * `CompletableFuture` 만으로 비동기적 작업들을 실행할 수 있다.
+### CompletableFuture의 비동기적 프로그래밍 처리 방법
+* 리턴값이 없는 경우: `runAsync()`
+* 리턴값이 있는 경우: `supplyAsync()`

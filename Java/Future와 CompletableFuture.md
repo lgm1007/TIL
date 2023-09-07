@@ -48,5 +48,63 @@ executor.shutdown();
 * 명시적으로 `Executor`를 사용할 필요가 없다.
   * `CompletableFuture` 만으로 비동기적 작업들을 실행할 수 있다.
 ### CompletableFuture의 비동기적 프로그래밍 처리 방법
-* 리턴값이 없는 경우: `runAsync()`
-* 리턴값이 있는 경우: `supplyAsync()`
+리턴값이 없는 경우: `runAsync()`
+* 형태 예제
+```java
+// runnable: 비동기로 실행할 작업을 나타내는 Runnable 객체
+public static CompletableFuture<Void> runAsync(Runnable runnable)
+```
+* 예제 소스
+```java
+public class RunAsyncExample {
+    public static void main(String[] args) {
+        // 비동기 작업 시작
+        CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("비동기 작업이 완료되었습니다.");
+        });
+
+        // 비동기 작업이 완료될 때까지 대기
+        future.join();
+
+        System.out.println("메인 스레드 계속 실행됨.");
+    }
+}
+```
+<br/>
+
+리턴값이 있는 경우: `supplyAsync()`
+* 형태 예제
+```java
+// supplier: 비동기로 실행할 작업을 나타내는 Supplier 객체로, 결과를 반환한다.
+public static <U> CompletableFuture<U> supplyAsync(Supplier<U> supplier)
+```
+* 예제 소스
+```java
+public class SupplyAsyncExample {
+    public static void main(String[] args) {
+        // 비동기 작업 시작
+        CompletableFuture<Integer> future = CompletableFuture.supplyAsync(() -> {
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            return 42;
+        });
+
+        // 비동기 작업이 완료되면 결과를 출력
+        future.thenAccept(result -> {
+            System.out.println("비동기 작업 결과: " + result);
+        });
+
+        System.out.println("메인 스레드 계속 실행됨.");
+    }
+}
+```
+
+* 위 `CompletableFuture` 메서드로 비동기 작업을 간단하게 처리할 수 있고, 결과를 기다리지 않고 다른 작업을 수행할 수도 있으며, 작업이 완료되면 필요한 후속 작업을 실행할 수도 있다.

@@ -40,6 +40,8 @@ colorSet.forEach(x -> System.out.println(x));               // 출력: blue brow
 * 대표적인 중개 연산과 그에 따른 메서드
     1. Stream 필터링: **filter()**, **distinct()**
     2. Stream 변환: **map()**, **flatMap()**
+       * map(): 단일 스트림 안의 요소를 원하는 특정 형태로 변환
+       * flatMap(): 스트림 안의 모든 원소를 **단일 원소 스트림**으로 변환
     3. Stream 제한: **limit()**, **skip()**
     4. Stream 정렬: **sorted()**
     5. Stream 연산 결과 확인: **peek()**

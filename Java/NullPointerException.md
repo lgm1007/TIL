@@ -43,3 +43,10 @@ String str = null;
 // 삼항연산자를 사용하여 null일 경우 처리함으로써 해결
 System.out.println((str == null) ? "null" : str.length());
 ```
+3. `Optional` 사용
+* Java 8 버전부터 추가된 `Optional` 클래스를 사용하는 방법
+```java
+Optional<Member> maybeNotMember = Optional.ofNullable(searchMember)
+        .orElse(null);
+```
+* [Optional 자세한 설명](./Optional.md)

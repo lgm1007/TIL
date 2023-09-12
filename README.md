@@ -98,6 +98,7 @@
       * [@Value](./Java/Spring/@Value.md)
   * [데이터 타입](./Java/자바의%20데이터타입.md)
   * [서블릿(Servlet)](./Java/Servlet.md)
+  * [익명클래스 및 람다식의 변수 범위](./Java/익명클래스%20및%20람다식의%20변수%20범위.md)
   * [Future와 ComplatableFuture](./Java/Future와%20CompletableFuture.md)
   * [Stream](./Java/Stream.md)
   * [JVM](./Java/JVM.md)

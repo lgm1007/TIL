@@ -14,7 +14,7 @@
 #### 매핑 인터페이스 작성
 * 인터페이스는 @Mapper 어노테이션을 사용하여 매핑 대상 클래스를 명시한다.
 * @Mapping 어노테이션을 사용하면 매핑 시 특정 필드나 메서드를 지정할 수 있다.
-* 예제 소스
+#### 작성 예제
   * `Source` 클래스를 `Target` 클래스로 매핑하려면 아래와 같이 작성한다.
   * 인터페이스와 메서드 명은 원하는 대로 지정 가능
 ```java
@@ -42,4 +42,28 @@ public interface SourceTargetMapper {
 ```java
 Target target = SourceTargetMapper.INSTANCE.sourceToTarget(source);
 ```
-
+#### 작성 예제2
+```java
+@Mapper
+public interface OrderMapper {
+	@Mapping(source = "owner.name", target = "ownerName")
+	@Mapping(source = "orderItems", target = "orderItems")
+	@Mapping(source = "buyDate", target = "buyDate")   
+	@Mapping(target = "totalPrice", qualifiedByName = "calculateTotalPrice")
+    OrderDto mapToDto(Order order);
+	
+	@Named("calculateTotalPrice")
+    default double calculateTotalPrice(Order order) {
+		double total = 0.0;
+		for (OrderItem item : order.getOrderItems()) {
+			double itemPrice = item.getPrice();
+			int quantity = item.getQuantity();
+			total += itemPrice * quantity;
+        }
+		return total;
+    }
+}
+```
+* `calculateTotalPrice` 라는 사용자 정의 메서드를 정의한다.
+* `@Mapping` 어노테이션의 `qualifiedByName` 속성에서 `@Named` 어노테이션으로 이름이 부여된 사용자 정의 메서드를 참조한다.
+* 참조한 `calculateTotalPrice` 메서드에서 계산한 값을 `OrderDto` 객체의 `totalPrice` 필드에 매핑한다.

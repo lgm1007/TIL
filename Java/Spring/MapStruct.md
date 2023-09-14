@@ -46,21 +46,21 @@ Target target = SourceTargetMapper.INSTANCE.sourceToTarget(source);
 ```java
 @Mapper
 public interface OrderMapper {
-	@Mapping(source = "owner.name", target = "ownerName")
-	@Mapping(source = "orderItems", target = "orderItems")
-	@Mapping(source = "buyDate", target = "buyDate")   
-	@Mapping(target = "totalPrice", qualifiedByName = "calculateTotalPrice")
+    @Mapping(source = "owner.name", target = "ownerName")
+    @Mapping(source = "orderItems", target = "orderItems")
+    @Mapping(source = "buyDate", target = "buyDate")   
+    @Mapping(target = "totalPrice", qualifiedByName = "calculateTotalPrice")
     OrderDto mapToDto(Order order);
 	
-	@Named("calculateTotalPrice")
+    @Named("calculateTotalPrice")
     default double calculateTotalPrice(Order order) {
-		double total = 0.0;
-		for (OrderItem item : order.getOrderItems()) {
-			double itemPrice = item.getPrice();
-			int quantity = item.getQuantity();
-			total += itemPrice * quantity;
+        double total = 0.0;
+        for (OrderItem item : order.getOrderItems()) {
+            double itemPrice = item.getPrice();
+            int quantity = item.getQuantity();
+            total += itemPrice * quantity;
         }
-		return total;
+        return total;
     }
 }
 ```

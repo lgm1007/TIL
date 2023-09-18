@@ -32,6 +32,7 @@
   * [웹상에서의 보안 공격](./CS%20(Computer%20Science)/웹상에서의%20보안%20공격.md)
   * [스레드와 프로세스](./CS%20(Computer%20Science)/스레드와%20프로세스.md)
   * [메모리 구조](./CS%20(Computer%20Science)/메모리%20구조.md)
+  * [분산시스템 - CPU Bound & I/O Bound](./CS%20(Computer%20Science)/분산시스템-CPU%20Bound%20&%20IO%20Bound.md)
   * [파일 구조](./CS%20(Computer%20Science)/파일%20구조.md)
   * [OSI 7 계층](./CS%20(Computer%20Science)/OSI%207계층.md)
   * [OS 데드락](./CS%20(Computer%20Science)/OS%20데드락.md)

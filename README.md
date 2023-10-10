@@ -106,6 +106,7 @@
   * [익명클래스 및 람다식의 변수 범위](./Java/익명클래스%20및%20람다식의%20변수%20범위.md)
   * [Future와 ComplatableFuture](./Java/Future와%20CompletableFuture.md)
   * [Stream](./Java/Stream.md)
+  * [Java에서의 효율적인 메모리 관리 개발팁](./Java/Java에서의%20효율적인%20메모리%20관리%20개발팁.md)
   * [JVM](./Java/JVM.md)
   * [Reflection](./Java/Reflection.md)
   * [Checked Exception 다루기](./Java/Checked%20Exception.md)

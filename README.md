@@ -29,6 +29,7 @@
   * [HTTP Status Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code)
     * [501 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/501%20code.md)
     * [503 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/503%20code.md)
+    * [505 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/505%20code.md)
   * [Network](./CS%20(Computer%20Science)/Network)
   * [HTTP의 이해](./CS%20(Computer%20Science)/HTTP의%20이해.md)
   * [HTTP COntent Type](./CS%20(Computer%20Science)/HTTP%20Content-Type.md)

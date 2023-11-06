@@ -83,6 +83,7 @@
         * [JPA - @OneToMany, @ManyToOne](./Java/Spring/JPA%20@OneToMany%20@ManyToOne.md)
         * [N + 1 문제](./Java/Spring/JPA%20n+1.md)
         * [@Transactional](./Java/Spring/@Transactional.md)
+        * [@TransactionalEventListener](./Java/Spring/@TransactionalEventListener.md)
         * [@Transient](./Java/Spring/@Transient.md)
       * [AOP](./Java/Spring/AOP.md)
       * [DI](./Java/Spring/DI.md)

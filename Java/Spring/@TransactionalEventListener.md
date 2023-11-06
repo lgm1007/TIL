@@ -36,6 +36,8 @@ public void handleOrderEvent(OrderEvent event) {
 4. **phase**
     * 이벤트 핸들링의 타이밍을 나타내며, `BEFORE_COMMIT`, `AFTER_COMMIT`, `AFTER_ROLLBACK` 등이 있다.
     * 디폴트 값은 `AFTER_COMMIT`
+    * 만약 이벤트 리스너에서 추가로 DB 작업을 진행해야 하는 경우 `Transactional(propagation = Propagation.REQUIRES_NEW)`
+      * 트랜잭션을 이어받지 않고 새로운 트랜잭션을 시작하겠다는 의미
 ```java
 @TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
 public void handleAfterCommitEvent(OrderEvent event) {
@@ -45,7 +47,15 @@ public void handleAfterCommitEvent(OrderEvent event) {
 @TransactionalEventListener(phase = TransactionPhase.AFTER_ROLLBACK)
 public void handleAfterCommitEvent(OrderEvent event) {
 		// 트랜잭션 롤백 이후에 이벤트 처리
-		}
+}
+
+@TransactionalEventListener(phase = TransactionPhase.AFTER_COMMIT)
+@Transactional(propagation = Propagation.REQUIRES_NEW)
+public void handleAfterCommitEvent(OrderEvent event) {
+	Order order = event.getOrder();
+	
+	// DB 작업 로직
+}
 ```
 
 ### 사용 예제

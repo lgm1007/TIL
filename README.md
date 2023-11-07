@@ -27,6 +27,7 @@
   * [Hateoas](./API/Hateoas.md)
 * [CS (Computer Science)](./CS%20(Computer%20Science))
   * [HTTP Status Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code)
+    * [401 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/401%20code.md)
     * [403 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/403%20code.md)
     * [404 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/404%20code.md)
     * [500 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/500%20code.md)

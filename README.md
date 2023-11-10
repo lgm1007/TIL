@@ -115,6 +115,7 @@
   * [데이터 타입](./Java/자바의%20데이터타입.md)
   * [서블릿(Servlet)](./Java/Servlet.md)
   * [익명클래스 및 람다식의 변수 범위](./Java/익명클래스%20및%20람다식의%20변수%20범위.md)
+  * [일급 컬렉션](./Java/일급%20컬렉션.md)
   * [Future와 ComplatableFuture](./Java/Future와%20CompletableFuture.md)
   * [Stream](./Java/Stream.md)
   * [Java에서의 효율적인 메모리 관리 개발팁](./Java/Java에서의%20효율적인%20메모리%20관리%20개발팁.md)

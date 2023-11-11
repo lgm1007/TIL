@@ -34,6 +34,7 @@
     * [407 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/407%20code.md)
     * [500 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/500%20code.md)
     * [501 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/501%20code.md)
+    * [502 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/502%20code.md)
     * [503 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/503%20code.md)
     * [505 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/505%20code.md)
   * [Network](./CS%20(Computer%20Science)/Network)

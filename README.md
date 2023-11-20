@@ -28,6 +28,7 @@
 * [CS (Computer Science)](./CS%20(Computer%20Science))
   * [HTTP Status Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code)
     * [206 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/206%20code.md)
+    * [301 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/301%20code.md)
     * [307 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/307%20code.md)
     * [401 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/401%20code.md)
     * [403 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/403%20code.md)

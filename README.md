@@ -111,6 +111,7 @@
       * [Querydsl](./Java/Spring/Querydsl.md)
       * [스프링의 HTTP 클라이언트 라이브러리](./Java/Spring/RestTemplate와%20WebClient.md)
       * [@Async](./Java/Spring/@Async.md)
+      * [@Builder.Default와 @Singular](./Java/Spring/@Builder.Default와%20@Singular.md)
       * [@ControllerAdvice](./Java/Spring/@ControllerAdvice.md)
       * [@Component와 @Bean](./Java/Spring/@Component와%20@Bean.md)
       * [@PostConstruct](./Java/Spring/@PostConstruct.md)

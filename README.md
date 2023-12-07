@@ -97,6 +97,7 @@
         * [@TransactionalEventListener](Java/Spring/JPA/@TransactionalEventListener.md)
         * [@Transient](Java/Spring/JPA/@Transient.md)
         * [값 타입 컬렉션 (@ElementCollection, @CollectionTable)](Java/Spring/JPA/값%20타입%20컬렉션%20@ElementCollection,%20@CollectionTable.md)
+        * [변경 감지와 병합](Java/Spring/JPA/변경%20감지와%20병합.md)
       * [AOP](./Java/Spring/AOP.md)
       * [DI](./Java/Spring/DI.md)
       * [Spring Batch](./Java/Spring/Spring%20Batch.md)

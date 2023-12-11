@@ -149,9 +149,9 @@ List<SimpleOrderDto> dtos = orders.stream()
   * N = `Delivery` 테이블에서 `Order`와 매칭되는 address 조회하는 쿼리 (`order → delivery` 지연로딩 조회 N번)
 * 필요하다면 패치 조인으로 튜닝할 수 있다.
 
-## 패치 조인 최적화
+## 페치 조인 최적화
 ```java
-// 패치 조인을 사용한 조회 메서드
+// 페치 조인을 사용한 조회 메서드
 public List<Order> findAllWithMemberDelivery() {
     return entityManager.createQuery(
             "select o from Order o" +
@@ -167,6 +167,52 @@ List<SimpleOrderDto> dtos = orders.stream()
     .toList();
 ```
 
-* 패치 조인을 사용하면 쿼리 1번만에 모두 조회 가능하다.
-* 패치 조인으로 `order → member`, `order → delivery` 는 이미 조회 된 상태이므로 지연로딩은 일어나지 않는다.
+* 페치 조인을 사용하면 쿼리 1번만에 모두 조회 가능하다.
+* 페치 조인으로 `order → member`, `order → delivery` 는 이미 조회 된 상태이므로 지연로딩은 일어나지 않는다.
+
+## JPA에서 DTO 바로 조회하기
+```java
+public class OrderRepository {
+    // ...
+    
+    public List<OrderSimpleQueryDto> findOrderDtos() {
+        entityManager.createQuery(
+                    "select new jpabook.jpashop.repository.OrderSimpleQueryDto(o.id, m.name, o.orderDate, o.status, d.address) from Order o" +
+                    "join o.member m" +
+                    "join o.delivery d", OrderSimpleQueryDto.class)
+                .getResultList();
+    }
+}
+```
+```java
+@Data
+public class OrderSimpleQueryDto {
+	private Long orderId;
+	private String name;
+	private LocalDateTime orderDate;
+	private OrderStatus orderStatus;
+	private Address address;
+	
+	public OrderSimpleQueryDto(Long orderId, String name, LocalDateTime orderDate, OrderStatus orderStatus, Address address) {
+		this.orderId = orderId;
+		this.name = name;
+		this.orderDate = orderDate;
+		this.orderStatus = orderStatus;
+		this.address = address;
+    }
+}
+```
+* `createQuery()` 메서드에서 SELECT 절에서 `new`명령어로 DTO 객체로 즉시 변환 가능하다.
+* 이 떄 DTO 객체의 생성자에는 조회하려는 값들을 하나하나 매개 변수로 받아야 한다. (엔티티 통째로 받진 못함)
+  * 사실 Repository 엔티티의 객체 그래프를 조회하고 사용하는 데 쓰이는 용도로써 논리적인 성격으로는 맞지 않다.
+    * DTO로 조회하면 API 스펙에 맞춰서 이미 쿼리가 짜여진 것이기 때문
+    * Repository 메서드 재사용성 관점에서 볼 때도 DTO를 바로 조회하는 함수는 해당 DTO를 조회할 때만 사용하므로 재사용성이 떨어진다.
+  * 또한 JPA에서 DTO를 바로 조회한다고 해도 성능 차이가 크게 나진 않는다.
+    * SELECT 쿼리에서 컬럼 몇 개의 차이일 뿐
+
+## 쿼리 방식 선택 권장 순서
+1. 우선적으로 엔티티를 DTO 객체로 변환하는 방법을 선택하는 걸 권장한다.
+2. 필요하면 패치 조인으로 성능을 최적화한다. (패치 조인으로 대부분의 성능 이슈가 해결된다.)
+3. 그래도 성능 최적화를 해야한다면 DTO를 직접 조회하는 방법을 고려한다.
+4. 최후의 방법은 JPA의 네이티브 SQL이나 스프링 JDBC Template를 사용해서 SQL을 직접 사용하는 방법을 선택한다.
 

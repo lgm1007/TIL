@@ -96,6 +96,7 @@
         * [JPA 임베디드 타입](./Java/Spring/JPA/JPA%20임베디드%20타입.md)
         * [JPA - @OneToMany, @ManyToOne](./Java/Spring/JPA%20@OneToMany%20@ManyToOne.md)
         * [N + 1 문제](./Java/Spring/JPA%20n+1.md)
+        * [Hibernate 네이밍 전략](./Java/Spring/JPA/Hibernate%20네이밍%20전략.md)
         * [@Transactional](Java/Spring/JPA/@Transactional.md)
         * [@TransactionalEventListener](Java/Spring/JPA/@TransactionalEventListener.md)
         * [@Transient](Java/Spring/JPA/@Transient.md)

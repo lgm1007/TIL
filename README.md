@@ -103,6 +103,7 @@
         * [값 타입 컬렉션 (@ElementCollection, @CollectionTable)](Java/Spring/JPA/값%20타입%20컬렉션%20@ElementCollection,%20@CollectionTable.md)
         * [변경 감지와 병합](Java/Spring/JPA/변경%20감지와%20병합.md)
       * [Troubleshooting](./Java/Spring/Troubleshooting)
+        * [Cannot construct instance of 에러](./Java/Spring/Troubleshooting/Cannot%20construct%20instance%20of%20에러.md)
         * [NullPointerException](Java/Spring/Troubleshooting/NullPointerException.md)
         * [OutOfMemory - GC overhead limit exceeded](./Java/OutOfMemory%20-%20GC%20overhead%20limit%20exceeded.md)
         * [UnsupportedOperationException](Java/Spring/Troubleshooting/UnsupportedOperationException.md)

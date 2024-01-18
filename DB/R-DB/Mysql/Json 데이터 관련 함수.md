@@ -92,3 +92,57 @@ mysql> SELECT JSON_KEYS('{"a": 1, "b": {"c": 30}}', '$.b');
 ```
 * 이중 JSON 구문의 문서에서 인수로 해당 JSON의 키 값을 넘겨주면 이중 구문 안의 키들을 반환한다.
 
+##### JSON_SEARCH()
+```
+mysql> SET @j = '["abc", [{"k": "10"}, "def"], {"x":"abc"}, {"y":"bcd"}]';
+mysql> SELECT JSON_SEARCH(@j, 'one', 'abc');
+---------------------------------
+| JSON_SEARCH(@j, 'one', 'abc') |
+---------------------------------
+| "$[0]"                        |
+---------------------------------
+
+mysql> SELECT JSON_SEARCH(@j, 'all', 'abc');
+-----------------------------------------
+| SELECT JSON_SEARCH(@j, 'all', 'abc'); |
+-----------------------------------------
+| "$[0]", "$[2].x"                      |
+-----------------------------------------
+
+mysql> SELECT JSON_SEARCH(@j, 'all', 'ghi');
+----------------------------------
+| JSON_SEARCH(@j, 'all', 'ghi'); |
+----------------------------------
+| NULL                           |
+----------------------------------
+
+mysql> SELECT JSON_SEARCH(@j, 'all', '10');
+---------------------------------
+| JSON_SEARCH(@j, 'all', '10'); |
+---------------------------------
+| "$[1][0].k"                   |
+---------------------------------
+```
+* 'one': 첫 번째로 일치하는 하나의 위치 문자열만 반환한다.
+* 'all': 중복된 위치가 포함되지 않게 일치하는 모든 위치의 문자열 반환한다.
+
+##### JSON_VALUE()
+```
+JSON_VALUE(json_doc, path [RETURNING type] [on_empty] [on_error])
+
+on_empty:
+    {NULL | ERROR | DEFAULT value} ON EMPTY
+
+on_error:
+    {NULL | ERROR | DEFAULT value} ON ERROR
+```
+* `json_doc`: 유효한 JSON 문서. NULL이면 함수는 NULL을 반환한다.
+* `path`: 문서의 한 위치를 가리키는 JSON 경로. 문자열 리터럴 값
+* `on_empty`를 지정하면 경로에 데이터가 없을 때 `JSON_VALUE()` 동작을 결정한다.
+  * NULL ON EMPTY: 함수가 NULL을 반환. 기본적인 `on_empty` 동작
+  * DEFAULT value ON EMPTY: 제공된 value 값이 반환된다. 값의 타입은 `[RETURNING type]`과 같아야 한다.
+  * ERROR ON EMPTY: 함수가 오류를 발생시킨다.
+* `on_erro`는 오류가 발생할 때 해당 결과와 함께 다음 값 중 하나를 결정한다.
+  * NULL ON ERROR: JSON_VALUE()는 NULL을 반환. `on_error`절이 사용되지 않을 경우 기본 동작
+  * DEFAULT value ON ERROR: value 값이 반환되며, 값의 타입은 `[RETURNING type]`과 같아야 한다.
+  * ERROR ON ERROR: 오류를 발생시킨다.

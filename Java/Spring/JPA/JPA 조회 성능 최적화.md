@@ -12,7 +12,7 @@ public class Order {
     @Column(name = "order_id")
     private int id;
     
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
     
@@ -73,7 +73,7 @@ public class Member {
 }
 ```
 
-### 2. 지연로딩 (`fetch = LAZY`) 문제
+### 2. 지연로딩 (`fetch = FetchType.LAZY`) 문제
 * 지연로딩으로 설정되어 있는 연관관계 엔티티는 실제 DB에서 가져오는 객체가 아닌 프록시 객체를 생성하게 된다.
   * 주로 `byteBuddy` 라는 라이브러리로 만든 프록시 객체를 사용한다.
 ```java
@@ -87,7 +87,7 @@ public class Order {
 	@Column(name = "order_id")
 	private int id;
 
-	@ManyToOne(fetch = LAZY)    // 지연로딩으로 설정되어 있으므로 Member에는 프록시 멤버 객체가 들어간다.
+	@ManyToOne(fetch = FetchType.LAZY)    // 지연로딩으로 설정되어 있으므로 Member에는 프록시 멤버 객체가 들어간다.
 	@JoinColumn(name = "member_id")
 	private Member member;
 

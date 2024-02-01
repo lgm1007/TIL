@@ -109,6 +109,7 @@
         * [Cannot construct instance of 에러](./Java/Spring/Troubleshooting/Cannot%20construct%20instance%20of%20에러.md)
         * [JPA - could not initialize proxy - no Session](./Java/Spring/Troubleshooting/JPA-could%20not%20initialize%20proxy.md)
         * [NullPointerException](Java/Spring/Troubleshooting/NullPointerException.md)
+        * [No serializer found for class](./Java/Spring/Troubleshooting/No%20serializer%20found%20for%20class.md)
         * [OutOfMemory - GC overhead limit exceeded](./Java/OutOfMemory%20-%20GC%20overhead%20limit%20exceeded.md)
         * [UnsupportedOperationException](Java/Spring/Troubleshooting/UnsupportedOperationException.md)
       * [AOP](./Java/Spring/AOP.md)

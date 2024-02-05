@@ -44,6 +44,7 @@
     * [504 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/504%20code.md)
     * [505 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/505%20code.md)
   * [Network](./CS%20(Computer%20Science)/Network)
+    * [Socket](./CS%20(Computer%20Science)/Network/Socket.md)
   * [HTTP의 이해](./CS%20(Computer%20Science)/HTTP의%20이해.md)
   * [HTTP COntent Type](./CS%20(Computer%20Science)/HTTP%20Content-Type.md)
   * [JWT](./CS%20(Computer%20Science)/JWT.md)

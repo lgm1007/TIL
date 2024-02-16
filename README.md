@@ -163,6 +163,7 @@
 * [MQ](./MQ)
     * [Kafka](./MQ/Kafka) 
         * [Kafka의 특징](./MQ/Kafka/Kafka의%20특징.md)
+        * [Kafka 주요 설정](./MQ/Kafka/Kafka%20주요%20설정.md)
         * [Offset 관리](./MQ/Kafka/Offset%20관리.md)
     * [메시지큐](./MQ/메시지큐.md)
     * [AWS SQS](./MQ/AWS%20SQS.md)

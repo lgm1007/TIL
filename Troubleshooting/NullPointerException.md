@@ -49,4 +49,4 @@ System.out.println((str == null) ? "null" : str.length());
 Optional<Member> maybeNotMember = Optional.ofNullable(searchMember)
         .orElse(null);
 ```
-* [Optional 자세한 설명](../../Optional.md)
+* [Optional 자세한 설명](../Java/Optional.md)

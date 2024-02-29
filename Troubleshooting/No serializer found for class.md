@@ -13,7 +13,7 @@ mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
 
 ##### 두 번째 방안
 * `@JsonProperty` 또는 `@JsonAutoDetect` 어노테이션을 이용하여 해결할 수 있다.
-  * [어노테이션 관련 설명 문서](../Jackson%20어노테이션%20정리.md)
+  * [어노테이션 관련 설명 문서](../Java/Spring/Jackson%20어노테이션%20정리.md)
 * 해당 방법으로 해결할 때 Json으로 변환을 원치 않는 필드에는 `@JsonIgnore`을 선언해줘야 한다.
 * `@JsonProperty` 사용 예제
 ```java

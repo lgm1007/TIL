@@ -99,6 +99,7 @@
         * [JPA 페치 조인 시 페이징과 성능 최적화 보장](./Java/Spring/JPA/JPA%20페치%20조인%20시%20페이징과%20성능%20최적화%20보장.md)
         * [JPA 엔티티 생명주기](./Java/Spring/JPA%20Entity%20생명주기.md)
         * [JPA 임베디드 타입](./Java/Spring/JPA/JPA%20임베디드%20타입.md)
+        * [JPA 잠금(Lock)](./Java/Spring/JPA/JPA%20잠금(Lock).md)
         * [JPA - @OneToMany, @ManyToOne](./Java/Spring/JPA%20@OneToMany%20@ManyToOne.md)
         * [N + 1 문제](./Java/Spring/JPA%20n+1.md)
         * [Hibernate 네이밍 전략](./Java/Spring/JPA/Hibernate%20네이밍%20전략.md)

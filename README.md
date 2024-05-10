@@ -95,6 +95,7 @@
 * [Java](./Java)
   * [Spring](./Java/Spring)
       * [JPA](Java/Spring/JPA/JPA.md)
+        * [Cascade 주의사항](./Java/Spring/JPA/Cascade%20주의사항.md)
         * [JPA 조회 성능 최적화](./Java/Spring/JPA/JPA%20조회%20성능%20최적화.md)
         * [JPA 페치 조인 시 페이징과 성능 최적화 보장](./Java/Spring/JPA/JPA%20페치%20조인%20시%20페이징과%20성능%20최적화%20보장.md)
         * [JPA 엔티티 생명주기](./Java/Spring/JPA%20Entity%20생명주기.md)

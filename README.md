@@ -180,6 +180,7 @@
     * [TDD](Programming/TDD.md)
     * [성능과 가독성을 높이는 분기처리](Programming/성능과%20가독성을%20높이는%20분기처리.md)
     * [유지보수 가능한 프로그래밍 원칙](Programming/유지보수%20가능한%20프로그래밍%20원칙.md)
+    * [함수 네이밍을 위한 동사 정리](Programming/함수%20네이밍을%20위한%20동사%20정리.md)
 * [Python](./Python)
     * [python 설치 (linux)](./Python/python%20설치%20(linux).md)
     * [python 삭제 (linux)](./Python/python%20삭제%20(linux).md)

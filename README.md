@@ -25,6 +25,7 @@
 * [API](./API)
   * [REST API와 RESTful API](./API/REST%20API와%20RESTful%20API.md)
   * [Hateoas](./API/Hateoas.md)
+  * [좋은 API Response Body](./API/좋은%20API%20Response%20Body.md)
 * [CS (Computer Science)](./CS%20(Computer%20Science))
   * [HTTP Status Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code)
     * [206 Code](./CS%20(Computer%20Science)/HTTP%20Status%20Code/206%20code.md)

@@ -70,6 +70,7 @@
     * [DB Transaction](./DB/Transaction.md) 
     * [GRANT (권한 관리)](./DB/Grant.md)
     * [RDS vs EC2](./DB/RDS%20vs%20EC2.md)
+    * [SQL 쿼리 튜닝 방법](./DB/SQL%20쿼리%20튜닝%20방법.md)
 * [DevOps](./DevOps)
 	* [Amazon EKS](DevOps/Amazon%20EKS.md)
 	* [ArgoCD](DevOps/ArgoCD.md)

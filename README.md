@@ -115,6 +115,7 @@
         * [변경 감지와 병합](Java/Spring/JPA/변경%20감지와%20병합.md)
       * [AOP](./Java/Spring/AOP.md)
       * [DI](./Java/Spring/DI.md)
+      * [Spring Bean 등록 방법과 @Configuration에서 @Bean을 사용해야 하는 이유](./Java/Spring/Spring%20Bean%20등록%20방법과%20@Configuration에서%20@Bean을%20사용해야%20하는%20이유.md)
       * [Spring Batch](./Java/Spring/Spring%20Batch.md)
       * [Spring Boot](./Java/Spring/Spring%20Boot.md)
       * [Spring Cloud Gateway](./Java/Spring/Spring%20Cloud%20Gateway.md)

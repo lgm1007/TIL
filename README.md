@@ -106,6 +106,7 @@
         * [JPA save 안티패턴](./Java/Spring/JPA/JPA-save-안티패턴.md)
         * [JPA 엔티티 생명주기](./Java/Spring/JPA%20Entity%20생명주기.md)
         * [JPA 임베디드 타입](./Java/Spring/JPA/JPA%20임베디드%20타입.md)
+        * [JPA 벌크 업데이트 처리 (@Modifying)](./Java/Spring/JPA/JPA%20벌크%20업데이트%20처리%20(@Modifying).md)
         * [JPA 잠금(Lock)](./Java/Spring/JPA/JPA%20잠금(Lock).md)
         * [JPA - @OneToMany, @ManyToOne](./Java/Spring/JPA%20@OneToMany%20@ManyToOne.md)
         * [N + 1 문제](./Java/Spring/JPA%20n+1.md)

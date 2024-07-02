@@ -200,6 +200,7 @@
     * [성능 테스트](./Testing/성능테스트.md)
 * [Troubleshooting](Troubleshooting)
   * [Spring](Troubleshooting/Spring)
+    * [builder() in 자식객체 cannot hide builder() in 부모객체](Troubleshooting/Spring/builder()%20in%20자식객체%20cannot%20hide%20builder()%20in%20부모객체.md)
     * [Cannot construct instance of 에러](Troubleshooting/Spring/Cannot%20construct%20instance%20of%20에러.md)
     * [save the transient instance before flushing](Troubleshooting/Spring/save%20the%20transient%20instance%20before%20flushing.md)
     * [JPA - could not initialize proxy - no Session](Troubleshooting/Spring/JPA-could%20not%20initialize%20proxy.md)

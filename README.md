@@ -90,6 +90,7 @@
     * [Virtualization](DevOps/Virtualization.md)
 	* [무중단 배포](DevOps/무중단%20배포.md)
 * [Git](./Git)
+  * [git repository 복제](./Git/git%20repository%20mirror.md)
   * [git reset](./Git/git%20reset.md)
   * [git stash](./Git/git%20stash.md)
   * [git cherry-pick](./Git/git%20cherry-pick.md)

@@ -177,6 +177,7 @@
         * [Kafka의 특징](./MQ/Kafka/Kafka의%20특징.md)
         * [Kafka 주요 설정](./MQ/Kafka/Kafka%20주요%20설정.md)
         * [Kafka 메시지 순서 보장하기](./MQ/Kafka/Kafka%20메시지%20순서%20보장하기.md)
+        * [Spring Kafka Consumer](./MQ/Kafka/Spring%20Kafka%20Consumer.md)
         * [Offset 관리](./MQ/Kafka/Offset%20관리.md)
     * [메시지큐](./MQ/메시지큐.md)
     * [AWS SQS](./MQ/AWS%20SQS.md)

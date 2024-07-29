@@ -96,6 +96,7 @@
   * [git stash](./Git/git%20stash.md)
   * [git cherry-pick](./Git/git%20cherry-pick.md)
   * [git 브랜치 삭제](./Git/git%20브랜치%20삭제.md)
+  * [unable to update local ref error](./Git/unable%20to%20update%20local%20ref%20error.md)
 * [HTML-CSS](./HTML-CSS)
     * [CSS 선택자](./HTML-CSS/CSS%20선택자.md)
     * [Iframe](./HTML-CSS/Iframe.md)

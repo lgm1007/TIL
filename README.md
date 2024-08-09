@@ -175,6 +175,7 @@
     * [3. 표준 라이브러리 - Stream](./Kotlin/Kotlin%20-%20Stream.md)
 * [MQ](./MQ)
     * [Kafka](./MQ/Kafka) 
+        * [Kafka 내부 동작 이해하기 1 - 레플리케이션](./MQ/Kafka/Kafka%20내부%20동작%20이해하기1%20-%20레플리케이션.md)
         * [Kafka의 특징](./MQ/Kafka/Kafka의%20특징.md)
         * [Kafka 주요 설정](./MQ/Kafka/Kafka%20주요%20설정.md)
         * [Kafka 멱등성 프로듀서](./MQ/Kafka/Kafka%20멱등성%20프로듀서.md)

@@ -177,6 +177,7 @@
     * [Kafka](./MQ/Kafka) 
         * [Kafka 내부 동작 이해하기 1 - 레플리케이션](./MQ/Kafka/Kafka%20내부%20동작%20이해하기1%20-%20레플리케이션.md)
         * [Kafka 내부 동작 이해하기 2 - 리더에포크](./MQ/Kafka/Kafka%20내부%20동작%20이해하기2%20-%20리더에포크.md)
+        * [Kafka 내부 동작 이해하기 3 - 컨트롤러와 로그 세그먼트](./MQ/Kafka/Kafka%20내부%20동작%20이해하기3%20-%20컨트롤러와%20로그%20세그먼트.md)
         * [Kafka의 특징](./MQ/Kafka/Kafka의%20특징.md)
         * [Kafka 주요 설정](./MQ/Kafka/Kafka%20주요%20설정.md)
         * [Kafka 멱등성 프로듀서](./MQ/Kafka/Kafka%20멱등성%20프로듀서.md)

@@ -26,6 +26,7 @@
   * [아키텍처 패턴](./Software%20Architecture/Architecture%20Pattern)
     * [이벤트 드리븐 아키텍처](./Software%20Architecture/Architecture%20Pattern/이벤트%20드리븐%20아키텍처.md)
     * [이벤트 소싱](./Software%20Architecture/Architecture%20Pattern/이벤트%20소싱.md)
+    * [Transactional Outbox 패턴](./Software%20Architecture/Architecture%20Pattern/Transactional%20Outbox%20패턴.md)
 * [API](./API)
   * [REST API와 RESTful API](./API/REST%20API와%20RESTful%20API.md)
   * [Hateoas](./API/Hateoas.md)

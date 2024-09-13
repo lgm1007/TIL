@@ -1,6 +1,6 @@
 # Spring Bean 등록 방법 및 @Configuration에서 @Bean을 사용해야 하는 이유
 ### 들어가기 앞서
-* `@Bean`에 대한 자세한 설명은 다음 문서에서 확인 ([@Component와 @Bean](./@Component와%20@Bean.md))
+* `@Bean`에 대한 자세한 설명은 다음 문서에서 확인 ([@Component와 @Bean](@Component와%20@Bean.md))
 
 ### Spring Bean 등록 방법
 #### 1. `@Configuration` 어노테이션과 `@Bean` 어노테이션 사용하기

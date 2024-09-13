@@ -125,6 +125,7 @@
       * [Spring Batch](./Java/Spring/Spring%20Batch.md)
       * [Spring Boot](./Java/Spring/Spring%20Boot.md)
       * [Spring Cloud Gateway](./Java/Spring/Spring%20Cloud%20Gateway.md)
+      * [Spring Data Redis 두 가지 사용방법](./Java/Spring/Spring%20Data%20Redis%20두%20가지%20사용방법.md)
       * [Spring Event](./Java/Spring/Spring%20Event.md)
       * [Spring Security](./Java/Spring/Spring%20Security.md)
       * [Spring-Retry](./Java/Spring/Spring-retry.md)

@@ -220,6 +220,7 @@
     * [Cannot construct instance of 에러](Troubleshooting/Spring/Cannot%20construct%20instance%20of%20에러.md)
     * [save the transient instance before flushing](Troubleshooting/Spring/save%20the%20transient%20instance%20before%20flushing.md)
     * [JPA - could not initialize proxy - no Session](Troubleshooting/Spring/JPA-could%20not%20initialize%20proxy.md)
+    * [JPA - Query executed via 'getResultList()' or 'getSingleResult()' must be a 'select' query](Troubleshooting/Spring/JPA-Query%20executed%20via%20getResultList%20or%20getSingleResult%20must%20be%20a%20select%20query.md)
     * [NullPointerException](Troubleshooting/Spring/NullPointerException.md)
     * [No serializer found for class](Troubleshooting/Spring/No%20serializer%20found%20for%20class.md)
     * [OutOfMemory - GC overhead limit exceeded](Troubleshooting/Spring/OutOfMemory%20-%20GC%20overhead%20limit%20exceeded.md)

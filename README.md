@@ -219,6 +219,7 @@
       * [JPA - could not initialize proxy - no Session](Troubleshooting/Spring/JPA/JPA-could%20not%20initialize%20proxy.md)
       * [JPA - Query executed via 'getResultList()' or 'getSingleResult()' must be a 'select' query](Troubleshooting/Spring/JPA/JPA-Query%20executed%20via%20getResultList%20or%20getSingleResult%20must%20be%20a%20select%20query.md)
     * [Test](Troubleshooting/Spring/Test)
+      * [No tests found for given includes](Troubleshooting/Spring/Test/JUnit-No%20tests%20found%20for%20given%20includes.md)
     * [[Maven] Blocking mirror for repositories](Troubleshooting/Spring/%5BMaven%5DBlocking%20mirror%20for%20repositories.md)
     * [builder() in 자식객체 cannot hide builder() in 부모객체](Troubleshooting/Spring/builder()%20in%20자식객체%20cannot%20hide%20builder()%20in%20부모객체.md)
     * [Cannot construct instance of 에러](Troubleshooting/Spring/Cannot%20construct%20instance%20of%20에러.md)

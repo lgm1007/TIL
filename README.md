@@ -67,6 +67,7 @@
 * [DB](./DB)
 	* [NoSQL](./DB/NoSQL)
       * [MongoDB](./DB/NoSQL/MongoDB.md)
+        * [MongoDB LIKE 검색.md](./DB/NoSQL/MongoDB/MongoDB%20LIKE%20%EA%B2%80%EC%83%89.md)
       * [Redis](./DB/NoSQL/Redis.md)
     * [Relational DB](./DB/R-DB)
       * [Mysql](./DB/R-DB/Mysql)

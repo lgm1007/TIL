@@ -202,6 +202,7 @@
   * [Network5. AWS 클라우드 용어 정리](./Network/Network5%20-%20AWS%20클라우드%20용어%20정리.md)
   * [Network6. VPC 개념 정리](./Network/Network6%20-%20VPC%20개념%20정리.md)
   * [Network7. VPC 보안 설정](./Network/Network7%20-%20VPC%20보안%20설정.md)
+  * [Network8. VPC 사설 IP 통신망](./Network/Network8%20-%20VPC%20사설%20IP%20통신망.md)
 * [Nginx](./Nginx)
     * [Apache VS Nginx](./Nginx/Apache%20vs%20Nginx.md)
     * [CentOS7 내 Nginx 설치](./Nginx/CentOS7%20내%20설치.md)

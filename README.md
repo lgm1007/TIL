@@ -204,6 +204,7 @@
   * [Network7. VPC 보안 설정](./Network/Network7%20-%20VPC%20보안%20설정.md)
   * [Network8. VPC 사설 IP 통신망](./Network/Network8%20-%20VPC%20사설%20IP%20통신망.md)
   * [Network9. VPC 엔드포인트](./Network/Network9%20-%20VPC%20엔드포인트.md)
+  * [Network10. ELB 구성](./Network/Network10%20-%20ELB%20구성.md)
 * [Nginx](./Nginx)
     * [Apache VS Nginx](./Nginx/Apache%20vs%20Nginx.md)
     * [CentOS7 내 Nginx 설치](./Nginx/CentOS7%20내%20설치.md)

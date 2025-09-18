@@ -53,6 +53,7 @@
   * [HTTP COntent Type](./CS%20(Computer%20Science)/HTTP%20Content-Type.md)
   * [JWT](./CS%20(Computer%20Science)/JWT.md)
   * [URI와 URL](./CS%20(Computer%20Science)/URI와%20URL.md)
+  * [MCP (Model Context Protocol)](./CS%20(Computer%20Science)/MCP.md)
   * [웹상에서의 보안 공격](./CS%20(Computer%20Science)/웹상에서의%20보안%20공격.md)
   * [데몬과 서비스](CS%20(Computer%20Science)/데몬과%20서비스.md)
   * [스레드와 프로세스](./CS%20(Computer%20Science)/스레드와%20프로세스.md)
